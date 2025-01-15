@@ -2,10 +2,38 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
+      <header>
+        <h1>English Flashcards Game</h1> 
+        <nav>
+          <ul>
+            <li>I love English</li>
+            <li><button>Home</button></li>
+            <li><button>Game</button></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div>
+          <form action="">
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <button>Add</button>
+            <button>Clear</button>
+          </form>
+        </div>
+        <div>
+
+        </div>
+      </main>
+      
+      <footer></footer>
+
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
