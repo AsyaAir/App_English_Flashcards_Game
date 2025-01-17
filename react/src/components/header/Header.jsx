@@ -1,14 +1,14 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-import './Header.css';
+import './Header.module.css';
 
 const Header = () => {
 
     return (
         <>
-        <header>
+        <header className="header">
             <h1>English Flashcards Game</h1> 
-            <nav>
+            <nav className='menu'>
                 <ul>
                     <li>I love English</li>
                     <li><a href='#'>Home</a></li>

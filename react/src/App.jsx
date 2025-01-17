@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import Header from './components/Header';
-import Home from './components/Home';
-import Game from './components/Game';
-import Footer from './components/Footer';
+// import { useState } from 'react';
+import Header from './components/header/Header.jsx';
+import Home from './components/home/Home.jsx';
+import Game from './components/game/Game.jsx';
+import Footer from './components/footer/Footer.jsx';
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className='main'>jjkjn
         <Home />
         <Game />
       </main>

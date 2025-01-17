@@ -1,12 +1,12 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-import './Home.css';
+import './Home.module.css';
 
 const Home = () => {
 
     return (
         <>
-        <div>
+        <div className="home">
             <form action="">
                 <div>
                     <label htmlFor="">English</label>
