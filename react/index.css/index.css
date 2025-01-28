@@ -1,12 +1,182 @@
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1em;
+@font-face {
+  font-family: "Raleway";
+  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Regular.woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Medium.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Bold.woff2");
+  font-weight: 400;
+  font-size: 15px;
+}
+:export {
+  mainColor: #6e9c9f;
+  text-basicColor: #000;
+  textFormLabelsColor: #868686;
+  textMainColoredButtonsAndQuantityOfGoodsInBasketgitColor: #fff;
+  backgroundBeigeColor: #f1eadc;
+  backgroundMainAccentButtonColor: #509498;
+  additionalAccentColor: #998e78;
+  backgroundMainStyle: rgba(110, 156, 159, 0.77);
+  backgroundArrowStyle: rgba(110, 156, 159, 0.1);
+  fontFamily: "Raleway", sans-serif;
+  fontSecondFamil: "Roboto", sans-serif;
+  desktopSize: 1155px;
+  tabletSize: 767px;
+  mobileSize: 429px;
 }
 
-.text {
-  font-size: 1.2em;
-  color: #aaa;
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-menu__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  height: 21px;
+  gap: 45px;
+  list-style: none;
+}
+@media screen and (max-width: 840px) {
+  .main-menu__items {
+    display: none;
+    min-width: 153px;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 20px 0;
+    padding: 25px 35px 25px 45px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-200%);
+  }
+}
+.main-menu__items .main-menu__link {
+  font-size: 0.8823529412em;
+}
+.main-menu__items .main-menu__link:hover {
+  color: #6e9c9f;
+}
+
+.logo {
+  margin-right: 145px;
+}
+@media screen and (max-width: 1155px) {
+  .logo {
+    margin-right: 0px;
+  }
+}
+
+.logo__link {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 0.9411764706em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 11px;
+  align-items: flex-end;
+}
+.logo__link .logo__icon {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.button {
+  padding: 22px 50px;
+  height: 68px;
+  background: #6e9c9f;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 139%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.button:hover {
+  background: #509498 !important;
+}
+
+.button-white {
+  padding: 15px 50px;
+  width: 270px;
+  height: 68px;
+  background-color: white;
+  border: 1px solid #509498;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 139%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #509498;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.button-white:hover {
+  color: white;
+  background-color: #6e9c9f;
+}
+
+.input {
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 15px 0 15px 0;
+  max-width: 350px;
+  min-width: 250px;
+}
+@media screen and (max-width: 1155px) {
+  .input {
+    max-width: 300px;
+  }
+}
+
+.textarea {
+  height: 150px;
 }
 
 :root {

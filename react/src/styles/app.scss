@@ -1,19 +1,70 @@
 // app.scss используется для компоненто-ориентированных стилей.
 
-// Этот файл обычно отвечает за стили, применяющиеся к основным компонентам приложения. 
-// В нем могут быть стили для компонентов, таких как App, контейнеры, глобальные блоки и 
-// так далее.
-// app.scss
-@use 'variables' as *; // Подключение переменных
-@use 'mixins' as *; // Подключение миксинов
+// app.scss отвечает за подключение глобальных стилей и объединение всего проекта в единое пространство. Обычно он используется в App.jsx как глобальный стиль:
 
-// Стили для компонентов приложения
-@use '../components/footer/Footer.module.scss' as *;
-@use '../components/card/card.module.scss' as *;
-@use '../components/forms/Forms.module.scss' as *;
-// @use '../components/buttons/right/' as *;   
-// @use '../components/buttons/left/' as *;
-// @use '../components/counter/' as *;
-@use '../components/header/Header.module.scss' as *;
+// Подключение глобальных базовых стилей
+@use './index.scss' as *;
 
-// И так далее для других компонентов
+// Подключение стилей для компонентов (глобальные)
+@use '../components/header/Header.module.scss';
+@use '../components/footer/Footer.module.scss';
+@use '../components/card/Card.module.scss';
+@use '../components/forms/Forms.module.scss';
+
+// Добавление общих стилей страницы
+// body {
+//   font-family: $font-stack; // Пример переменной из _variables.scss
+//   background-color: $background-color; // Пример переменной
+//   margin: 0;
+//   padding: 0;
+// }
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  

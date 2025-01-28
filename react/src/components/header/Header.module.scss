@@ -1,19 +1,54 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@use '../../styles/index.scss';
+
+// .header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 1rem 2rem;
+//     background-color: #f8f9fa;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// }
+// h1 {
+//     font-size: 2em;
+//     color: #343a40;
+// }
+// .menu {
+//     display: flex;
+//     gap: 1rem;
+// }
+// a.active {
+//     color: red;
+//   }
+
+  .header {
+  // @extend %container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  //background-color: rgba(255, 255, 255, 0);
+  // background-color: $text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color; // убран стиль только для главной страницы (Настя)
+  padding: 33px 20px 34px 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+
+//   .header.scrolling {
+//     background-color: $text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
+//   }
 }
-h1 {
-    font-size: 2em;
-    color: #343a40;
-}
+
 .menu {
-    display: flex;
-    gap: 1rem;
-}
-a.active {
-    color: red;
+  margin-right: 160px; //170px;
+
+  @media screen and (max-width: 1155px) {
+    margin-right: 0px;
   }
+
+  @media screen and (max-width: 840px) {
+    order: 1;
+    position: relative;
+  }
+}

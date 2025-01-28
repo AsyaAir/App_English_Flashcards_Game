@@ -1,3 +1,281 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Regular.woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Medium.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Bold.woff2");
+  font-weight: 400;
+  font-size: 15px;
+}
+:export {
+  mainColor: #6e9c9f;
+  text-basicColor: #000;
+  textFormLabelsColor: #868686;
+  textMainColoredButtonsAndQuantityOfGoodsInBasketgitColor: #fff;
+  backgroundBeigeColor: #f1eadc;
+  backgroundMainAccentButtonColor: #509498;
+  additionalAccentColor: #998e78;
+  backgroundMainStyle: rgba(110, 156, 159, 0.77);
+  backgroundArrowStyle: rgba(110, 156, 159, 0.1);
+  fontFamily: "Raleway", sans-serif;
+  fontSecondFamil: "Roboto", sans-serif;
+  desktopSize: 1155px;
+  tabletSize: 767px;
+  mobileSize: 429px;
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-menu__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  height: 21px;
+  gap: 45px;
+  list-style: none;
+}
+@media screen and (max-width: 840px) {
+  .main-menu__items {
+    display: none;
+    min-width: 153px;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 20px 0;
+    padding: 25px 35px 25px 45px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-200%);
+  }
+}
+.main-menu__items .main-menu__link {
+  font-size: 0.8823529412em;
+}
+.main-menu__items .main-menu__link:hover {
+  color: #6e9c9f;
+}
+
+.logo {
+  margin-right: 145px;
+}
+@media screen and (max-width: 1155px) {
+  .logo {
+    margin-right: 0px;
+  }
+}
+
+.logo__link {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 0.9411764706em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 11px;
+  align-items: flex-end;
+}
+.logo__link .logo__icon {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.button {
+  padding: 22px 50px;
+  height: 68px;
+  background: #6e9c9f;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 139%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.button:hover {
+  background: #509498 !important;
+}
+
+.button-white {
+  padding: 15px 50px;
+  width: 270px;
+  height: 68px;
+  background-color: white;
+  border: 1px solid #509498;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 139%;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #509498;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.button-white:hover {
+  color: white;
+  background-color: #6e9c9f;
+}
+
+.input {
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 15px 0 15px 0;
+  max-width: 350px;
+  min-width: 250px;
+}
+@media screen and (max-width: 1155px) {
+  .input {
+    max-width: 300px;
+  }
+}
+
+.textarea {
+  height: 150px;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  padding: 33px 20px 34px 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.menu {
+  margin-right: 160px;
+}
+@media screen and (max-width: 1155px) {
+  .menu {
+    margin-right: 0px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .menu {
+    order: 1;
+    position: relative;
+  }
+}
+
 .footer {
   background-color: #333;
   color: #fff;
@@ -76,25 +354,53 @@ button:hover {
   background-color: #45a049;
 }
 
-.header {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  min-height: 100vh;
 }
 
-h1 {
-  font-size: 2em;
-  color: #343a40;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
-.menu {
-  display: flex;
-  gap: 1rem;
+.logo:hover {
+  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6666666667));
 }
 
-a.active {
-  color: red;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }

@@ -7,8 +7,10 @@
    npm install react-router
    npm install react-router-dom
    npm install react-router react-router-dom
-5. очистка кэша
+5. Очистка кэша
    rm -rf node_modules/.vite
+6. Сохранение структуры проекта в файл
+   find . | sed -e 's/[^-][^\/]_\// |-- /g' -e 's/|-- \([^|]_\)$/📁 \1/' -e 's/|-- \([^|]*\..*\)$/📄 \1/' > structure.txt
 
 # React + Vite
 

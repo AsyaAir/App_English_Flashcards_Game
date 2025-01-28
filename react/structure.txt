@@ -2,6 +2,10 @@
   📁 index.html
   📁 .DS_Store
   📁 node_modules
+  |--  
+  📁 index.css
+  📄   📁 app.css
+  📄   📁 index.css
   📁 vite.config.js
   📁 README.md
   📁 public
@@ -15,8 +19,10 @@
   📄   📁 App.css
   📄   📁 index.css
   |--   📁 styles
+  |--   📄   📁 _fonts.scss
   |--   📄   📁 _variables.scss
   |--   📄   📁 index.scss
+  |--   📄   📁 _templates.scss
   |--   📄   📁 _mixins.scss
   |--   📄   📁 app.scss
   |--   📁 components
@@ -47,6 +53,17 @@
   |--   📁 assets
   |--   📄   📁 .DS_Store
   |--   |--   📁 images
+  |--   |--   📄   📁 klipartz.com.png
+  |--   |--   📄   📁 .DS_Store
+  |--   |--   📄   📁 Lovepik_com-380158271-realistic-wind-golden-yellow-flame-burning-fire-circle-fire-spark-free-fire.png
+  |--   |--   📄   📁 Lovepik_com-400361051-blue-line.png
+  |--   |--   📄   📁 pngegg.png
+  |--   |--   📄   📁 fire-ring-2091656_640.png
+  |--   |--   📄   📁 Дизайн без названия.png
+  |--   |--   📁 fonts
+  |--   |--   📄   📁 Raleway-Bold.woff2
+  |--   |--   📄   📁 Raleway-Medium.woff2
+  |--   |--   📄   📁 Raleway-Regular.woff2
   |--   📁 pages
   |--   |--   📁 home
   |--   |--   📄   📁 Home.module.scss

@@ -1,0 +1,43 @@
+// Colors
+$main-color: #6e9c9f;
+
+$text-basic-color: #000;
+$text-form_labels-color: #868686;
+$text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color: #fff;
+
+$background-beige-color: #f1eadc;
+$background-main_accent_button-color: #509498;
+$additional-accent-color: #998e78;
+
+$background-main-style: rgba(110, 156, 159, 0.77);
+$background-arrow-style: rgba(110, 156, 159, 0.1);
+
+// Fonts
+$font-family: "Raleway", sans-serif;
+$font-second-famil: "Roboto", sans-serif;
+
+// Screen sizes
+$desktop-size: 1155px;
+$tablet-size: 767px;
+$mobile-size: 429px;
+
+:export {
+    mainColor: $main-color;
+    text-basicColor: $text-basic-color;
+    textFormLabelsColor: $text-form_labels-color;
+    textMainColoredButtonsAndQuantityOfGoodsInBasketgitColor: $text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
+
+    backgroundBeigeColor: $background-beige-color;
+    backgroundMainAccentButtonColor: $background-main_accent_button-color;
+    additionalAccentColor: $additional-accent-color;
+    
+    backgroundMainStyle: $background-main-style;
+    backgroundArrowStyle: $background-arrow-style;
+
+    fontFamily: $font-family;
+    fontSecondFamil: $font-second-famil;
+    
+    desktopSize: $desktop-size;
+    tabletSize: $tablet-size;
+    mobileSize: $mobile-size;
+}

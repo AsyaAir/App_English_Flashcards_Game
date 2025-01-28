@@ -1,0 +1,44 @@
+@use 'variables' as var;
+// @use 'fonts' as font;
+
+// Шаблоны-миксины для названий и цен в карточках товаров (от Насти). 
+// Добавляется к стилям командой @include item-card-title или @include item-card-price
+
+//==================Шаблоны текста карточки товара НАЧАЛО====================//
+
+// Шаблон стандартного набора шрифта для всего сайта
+@mixin standart-text {
+    font-family: var.$font-family;
+    letter-spacing: 0.02em;
+  }
+  
+  // Шаблон стиля текста карточки товара 
+  @mixin item-card-text-style {
+    @include standart-text;
+    font-weight: 500;
+    line-height: 140%;
+    color: var.$text-basic-color;
+  }
+  
+  // Шаблон стиля названия товара в его карточке 
+  @mixin item-card-title {
+    @include item-card-text-style;
+    font-size: 20px;
+  }
+  
+  // Шаблон стиля цены товара в его карточке 
+  @mixin item-card-price {
+    @include item-card-text-style;
+    font-size: 15px;
+    color: var.$additional-accent-color;
+  }
+  
+  // Шаблон стиля старой цены товара в его карточке
+  @mixin item-card-old-price {
+    @include item-card-text-style;
+    font-size: 15px;
+    color: var.$additional-accent-color;
+    text-decoration: line-through;
+  }
+  
+  //==================Шаблоны текста карточки товара КОНЕЦ====================//
