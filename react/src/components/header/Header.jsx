@@ -1,23 +1,20 @@
-// import { useState } from 'react';
+import { NavLink } from "react-router-dom";
+import './Header.module.scss';
 
-import './Header.module.css';
-
-const Header = () => {
-
+function Header() {
     return (
-        <>
         <header className="header">
-            <h1>English Flashcards Game</h1> 
             <nav className='menu'>
                 <ul>
-                    <li>I love English</li>
-                    <li><a href='#'>Home</a></li>
-                    <li><a href='#'>Game</a></li>
+                    <li><NavLink to="/">EnFLame</NavLink></li>
+                    <li><NavLink to="/">home</NavLink></li>
+                    <li><NavLink to="/vocabualary">vocabualary</NavLink></li>
+                    <li><NavLink to="/game">game</NavLink></li>
+                    <li><NavLink to="/results">results</NavLink></li>
                 </ul>
             </nav>
         </header>
-        </>
     );
-};
+}
 
 export default Header;

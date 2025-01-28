@@ -1,0 +1,62 @@
+.
+  📁 index.html
+  📁 .DS_Store
+  📁 node_modules
+  📁 vite.config.js
+  📁 README.md
+  📁 public
+  📁 .gitignore
+  📁 package-lock.json
+  📁 package.json
+  📁 eslint.config.js
+  📁 structure.txt
+  📁 src
+  📄   📁 .DS_Store
+  📄   📁 App.css
+  📄   📁 index.css
+  |--   📁 styles
+  |--   📄   📁 _variables.scss
+  |--   📄   📁 index.scss
+  |--   📄   📁 _mixins.scss
+  |--   📄   📁 app.scss
+  |--   📁 components
+  |--   |--   📁 footer
+  |--   |--   📄   📁 Footer.module.scss
+  |--   |--   📄   📁 Footer.jsx
+  |--   📄   📁 .DS_Store
+  |--   |--   📁 card
+  |--   |--   📄   📁 Card.jsx
+  |--   |--   📄   📁 card.module.scss
+  |--   |--   📁 forms
+  |--   |--   📄   📁 Forms.jsx
+  |--   |--   📄   📁 Forms.module.scss
+  |--   |--   📁 buttons
+  |--   |--   |--   📁 right
+  |--   |--   |--   📁 show
+  |--   |--   |--   📁 left
+  |--   |--   |--   📁 trash
+  |--   |--   |--   📁 clear
+  |--   |--   |--   📁 edit
+  |--   |--   |--   📁 add
+  |--   |--   📁 counter
+  |--   |--   📁 header
+  |--   |--   📄   📁 Header.jsx
+  |--   |--   📄   📁 Header.module.scss
+  📄   📁 main.jsx
+  📄   📁 App.jsx
+  |--   📁 assets
+  |--   📄   📁 .DS_Store
+  |--   |--   📁 images
+  |--   📁 pages
+  |--   |--   📁 home
+  |--   |--   📄   📁 Home.module.scss
+  |--   |--   📄   📁 Home.jsx
+  |--   |--   📁 game
+  |--   |--   📄   📁 Game.module.scss
+  |--   |--   📄   📁 Game.jsx
+  |--   |--   📁 results
+  |--   |--   📄   📁 Results.module.scss
+  |--   |--   📄   📁 Results.jsx
+  |--   |--   📁 vocabualary
+  |--   |--   📄   📁 Vocabualary.module.scss
+  |--   |--   📄   📁 Vocabualary.jsx

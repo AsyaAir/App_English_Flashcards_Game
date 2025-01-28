@@ -1,11 +1,14 @@
-import './Footer.module.css';
+// import './Footer.module.scss';
+import styles from './Footer.module.scss'; // Импортируем стили как объект
+// styles — это объект, который содержит все классы, определенные в Footer.module.scss.
 
 const Footer = () => {
     return (
-        <footer className="footer">
-            <p className='rights'>by AsyaAir</p>
+        <footer className={styles.footer}>
+            <p className={styles.text}>by AsyaAir</p>
         </footer>
     );
 };
+// styles.footer и styles.text будут соответствовать уникальным классам, сгенерированным во время сборки.
 
 export default Footer;

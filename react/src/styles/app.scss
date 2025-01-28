@@ -1,0 +1,19 @@
+// app.scss используется для компоненто-ориентированных стилей.
+
+// Этот файл обычно отвечает за стили, применяющиеся к основным компонентам приложения. 
+// В нем могут быть стили для компонентов, таких как App, контейнеры, глобальные блоки и 
+// так далее.
+// app.scss
+@use 'variables' as *; // Подключение переменных
+@use 'mixins' as *; // Подключение миксинов
+
+// Стили для компонентов приложения
+@use '../components/footer/Footer.module.scss' as *;
+@use '../components/card/card.module.scss' as *;
+@use '../components/forms/Forms.module.scss' as *;
+// @use '../components/buttons/right/' as *;   
+// @use '../components/buttons/left/' as *;
+// @use '../components/counter/' as *;
+@use '../components/header/Header.module.scss' as *;
+
+// И так далее для других компонентов

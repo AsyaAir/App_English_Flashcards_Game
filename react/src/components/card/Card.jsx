@@ -1,4 +1,4 @@
-import './card.module.css';
+import './card.module.scss';
 
 const Card = () => {
 
