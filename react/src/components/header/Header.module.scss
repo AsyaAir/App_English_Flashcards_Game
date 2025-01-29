@@ -1,4 +1,4 @@
-@use '../../styles/index.scss';
+@use '../../styles/index.scss' as var;
 
   .header {
   // @extend %container;
@@ -6,7 +6,6 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 5;
   width: 100%;
   padding: 33px 20px 34px 20px;
   top: 0;
@@ -19,13 +18,11 @@
   justify-content: space-between;
   align-items: center;
 
-  margin-right: 160px; //170px;
-
-  @media screen and (max-width: 1155px) {
-    margin-right: 0px;
+  @media screen and (max-width: var.$desktop-size) {
+    // margin-right: 0px;
   }
 
-  @media screen and (max-width: 840px) {
+  @media screen and (max-width: var.$tablet-size) {
     order: 1;
     position: relative;
   }
@@ -40,13 +37,13 @@
 
 .menu__link a {
   text-decoration: none; /* Убираем подчеркивание */
-  color: #000; /* Цвет текста */
-  padding: 10px 20px; /* Отступы вокруг текста */
+  color: var.$text-basic-color; /* Цвет текста */
+  padding: 10px 10px; /* Отступы вокруг текста */
   display: inline-block; /* Делаем ссылки блоками для правильного выравнивания */
 }
 
 .menu__link a:hover {
-  background-color: #f0f0f0; /* Цвет фона при наведении */
-  color: #007bff; /* Цвет текста при наведении */
+  background-color: var.$background-main-style; /* Цвет фона при наведении */
+  color: var.$additional-accent-color; /* Цвет текста при наведении */
 }
 

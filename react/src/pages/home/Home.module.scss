@@ -1,11 +1,19 @@
-@use '../../styles/index.scss';
+@use '../../styles/index.scss' as var;
 
-// .home {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     height: 100vh;
-//     background-color: #282c34;
-//     color: white;
-// }
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    background-color: var.$background-main-style;
+    color: var.$text-basic-color;
+
+    .logo {
+        max-width: 50%;
+        margin: 20px;
+    }
+}

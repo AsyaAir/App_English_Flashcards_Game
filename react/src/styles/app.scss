@@ -3,21 +3,18 @@
 // app.scss отвечает за подключение глобальных стилей и объединение всего проекта в единое пространство. Обычно он используется в App.jsx как глобальный стиль:
 
 // Подключение глобальных базовых стилей
-@use './index.scss' as *;
+@use './index.scss';
 
 // Подключение стилей для компонентов (глобальные)
 @use '../components/header/Header.module.scss';
 @use '../components/footer/Footer.module.scss';
+@use '../components/carddeck/CardDeck.module.scss';
 @use '../components/card/Card.module.scss';
-@use '../components/forms/Forms.module.scss';
+@use '../pages/home/Home.module.scss';
+@use '../pages/game/Game.module.scss';
+@use '../pages/vocabualary/Vocabualary.module.scss';
+@use '../pages/results/Results.module.scss'
 
-// Добавление общих стилей страницы
-// body {
-//   font-family: $font-stack; // Пример переменной из _variables.scss
-//   background-color: $background-color; // Пример переменной
-//   margin: 0;
-//   padding: 0;
-// }
 // #root {
 //     max-width: 1280px;
 //     margin: 0 auto;

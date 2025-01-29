@@ -1,22 +1,23 @@
 import './Home.module.scss';
 import logo from '../../assets/images/pngegg.png';
-import { Link } from 'react-router-dom'; // импорт Link
+import { NavLink } from 'react-router'; 
+
 
 const Home = () => {
 
     return (
         <>
-        <div>
+        <div className='home'>
             <h1>English Flashcards Game EnFLame</h1>
             <h2>Добро пожаловать в EnFlame — игру для изучения английских слов!</h2>
-                <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" className='logo' />
             <p>EnFLame — это увлекательный способ пополнить словарный запас и улучшить память. Используйте карточки с новыми словами, проверяйте свои знания и отслеживайте прогресс. Учиться легко и интересно!</p>
         </div>
-        <div className='buton'>
-                {/* Оборачиваем кнопку в компонент Link */}
-                <Link to="/game">
+        <div className='button'>
+                {/* Оборачиваем кнопку в компонент NavLink */}
+                <NavLink to="/game">
                     <button type='button' >Lets START</button>
-                </Link>
+                </NavLink>
             </div>
         </>
     );

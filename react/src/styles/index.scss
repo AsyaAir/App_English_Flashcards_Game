@@ -6,10 +6,10 @@
 
 // Этот файл ничего не должен содержать, кроме @forward. Его задача — стать хабом для базовых стилей.
 
-@forward '_fonts.scss';
-@forward '_variables.scss'; 
-@forward '_mixins.scss';
-@forward '_templates.scss';
+@forward './_fonts.scss';
+@forward './_variables.scss'; 
+@forward './_mixins.scss';
+@forward './_templates.scss';
 
 // :root {
 //     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

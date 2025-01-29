@@ -1,79 +1,82 @@
 .
-  📁 index.html
-  📁 .DS_Store
-  📁 node_modules
-  |--  
-  📁 index.css
-  📄   📁 app.css
-  📄   📁 index.css
-  📁 vite.config.js
-  📁 README.md
-  📁 public
-  📁 .gitignore
-  📁 package-lock.json
-  📁 package.json
-  📁 eslint.config.js
-  📁 structure.txt
-  📁 src
-  📄   📁 .DS_Store
-  📄   📁 App.css
-  📄   📁 index.css
-  |--   📁 styles
-  |--   📄   📁 _fonts.scss
-  |--   📄   📁 _variables.scss
-  |--   📄   📁 index.scss
-  |--   📄   📁 _templates.scss
-  |--   📄   📁 _mixins.scss
-  |--   📄   📁 app.scss
-  |--   📁 components
-  |--   |--   📁 footer
-  |--   |--   📄   📁 Footer.module.scss
-  |--   |--   📄   📁 Footer.jsx
-  |--   📄   📁 .DS_Store
-  |--   |--   📁 card
-  |--   |--   📄   📁 Card.jsx
-  |--   |--   📄   📁 card.module.scss
-  |--   |--   📁 forms
-  |--   |--   📄   📁 Forms.jsx
-  |--   |--   📄   📁 Forms.module.scss
-  |--   |--   📁 buttons
-  |--   |--   |--   📁 right
-  |--   |--   |--   📁 show
-  |--   |--   |--   📁 left
-  |--   |--   |--   📁 trash
-  |--   |--   |--   📁 clear
-  |--   |--   |--   📁 edit
-  |--   |--   |--   📁 add
-  |--   |--   📁 counter
-  |--   |--   📁 header
-  |--   |--   📄   📁 Header.jsx
-  |--   |--   📄   📁 Header.module.scss
-  📄   📁 main.jsx
-  📄   📁 App.jsx
-  |--   📁 assets
-  |--   📄   📁 .DS_Store
-  |--   |--   📁 images
-  |--   |--   📄   📁 klipartz.com.png
-  |--   |--   📄   📁 .DS_Store
-  |--   |--   📄   📁 Lovepik_com-380158271-realistic-wind-golden-yellow-flame-burning-fire-circle-fire-spark-free-fire.png
-  |--   |--   📄   📁 Lovepik_com-400361051-blue-line.png
-  |--   |--   📄   📁 pngegg.png
-  |--   |--   📄   📁 fire-ring-2091656_640.png
-  |--   |--   📄   📁 Дизайн без названия.png
-  |--   |--   📁 fonts
-  |--   |--   📄   📁 Raleway-Bold.woff2
-  |--   |--   📄   📁 Raleway-Medium.woff2
-  |--   |--   📄   📁 Raleway-Regular.woff2
-  |--   📁 pages
-  |--   |--   📁 home
-  |--   |--   📄   📁 Home.module.scss
-  |--   |--   📄   📁 Home.jsx
-  |--   |--   📁 game
-  |--   |--   📄   📁 Game.module.scss
-  |--   |--   📄   📁 Game.jsx
-  |--   |--   📁 results
-  |--   |--   📄   📁 Results.module.scss
-  |--   |--   📄   📁 Results.jsx
-  |--   |--   📁 vocabualary
-  |--   |--   📄   📁 Vocabualary.module.scss
-  |--   |--   📄   📁 Vocabualary.jsx
+./index.html
+./.DS_Store
+./node_modules
+
+./index.css
+./index.css/app.css
+./index.css/index.css
+./vite.config.js
+./README.md
+./public
+./.gitignore
+./package-lock.json
+./package.json
+./eslint.config.js
+./structure.txt
+./src
+./src/.DS_Store
+./src/App.css
+./src/index.css
+./src/styles
+./src/styles/_fonts.scss
+./src/styles/_variables.scss
+./src/styles/index.scss
+./src/styles/_templates.scss
+./src/styles/_mixins.scss
+./src/styles/app.scss
+./src/components
+./src/components/footer
+./src/components/footer/Footer.module.scss
+./src/components/footer/Footer.jsx
+./src/components/.DS_Store
+./src/components/card
+./src/components/card/Card.jsx
+./src/components/card/card.module.scss
+./src/components/forms
+./src/components/forms/Forms.jsx
+./src/components/forms/Forms.module.scss
+./src/components/buttons
+./src/components/buttons/right
+./src/components/buttons/show
+./src/components/buttons/left
+./src/components/buttons/trash
+./src/components/buttons/clear
+./src/components/buttons/edit
+./src/components/buttons/add
+./src/components/carddeck
+./src/components/carddeck/CardDeck.jsx
+./src/components/carddeck/CardDeck.module.scss
+./src/components/counter
+./src/components/header
+./src/components/header/Header.jsx
+./src/components/header/Header.module.scss
+./src/main.jsx
+./src/App.jsx
+./src/assets
+./src/assets/.DS_Store
+./src/assets/images
+./src/assets/images/klipartz.com.png
+./src/assets/images/.DS_Store
+./src/assets/images/Lovepik_com-380158271-realistic-wind-golden-yellow-flame-burning-fire-circle-fire-spark-free-fire.png
+./src/assets/images/Lovepik_com-400361051-blue-line.png
+./src/assets/images/pngegg.png
+./src/assets/images/fire-ring-2091656_640.png
+./src/assets/images/Дизайн без названия.png
+./src/assets/fonts
+./src/assets/fonts/Raleway-Bold.woff2
+./src/assets/fonts/Raleway-Medium.woff2
+./src/assets/fonts/Raleway-Regular.woff2
+./src/pages
+./src/pages/home
+./src/pages/home/Home.module.scss
+./src/pages/home/Home.jsx
+./src/pages/game
+./src/pages/game/Game.module.scss
+./src/pages/game/Game.jsx
+./src/pages/results
+./src/pages/results/Results.module.scss
+./src/pages/results/Results.jsx
+./src/pages/vocabualary
+./src/pages/vocabualary/Vocabualary.module.scss
+./src/pages/vocabualary/Vocabualary.jsx
