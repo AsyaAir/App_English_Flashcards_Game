@@ -1,25 +1,5 @@
 @use '../../styles/index.scss';
 
-// .header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 1rem 2rem;
-//     background-color: #f8f9fa;
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-// }
-// h1 {
-//     font-size: 2em;
-//     color: #343a40;
-// }
-// .menu {
-//     display: flex;
-//     gap: 1rem;
-// }
-// a.active {
-//     color: red;
-//   }
-
   .header {
   // @extend %container;
   display: flex;
@@ -28,19 +8,17 @@
   position: fixed;
   z-index: 5;
   width: 100%;
-  //background-color: rgba(255, 255, 255, 0);
-  // background-color: $text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color; // убран стиль только для главной страницы (Настя)
   padding: 33px 20px 34px 20px;
   top: 0;
   left: 0;
   right: 0;
-
-//   .header.scrolling {
-//     background-color: $text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
-//   }
 }
 
 .menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   margin-right: 160px; //170px;
 
   @media screen and (max-width: 1155px) {
@@ -52,3 +30,23 @@
     position: relative;
   }
 }
+
+.menu__link {
+  display: flex; 
+  list-style: none; 
+  width: 100%;
+  height: auto;
+}
+
+.menu__link a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #000; /* Цвет текста */
+  padding: 10px 20px; /* Отступы вокруг текста */
+  display: inline-block; /* Делаем ссылки блоками для правильного выравнивания */
+}
+
+.menu__link a:hover {
+  background-color: #f0f0f0; /* Цвет фона при наведении */
+  color: #007bff; /* Цвет текста при наведении */
+}
+

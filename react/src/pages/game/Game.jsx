@@ -1,34 +1,49 @@
-// import Card from '../../components/card/Card.jsx';
 import './Game.module.scss';
+import CardDeck from '../../components/carddeck/CardDeck';
+import { useState, useEffect } from 'react';
 
 const Game = () => {
+    const [words, setWords] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        // Загрузка слов с API
+        fetch('http://itgirlschool.justmakeit.ru/api/words')
+            .then((response) => response.json())
+            .then((data) => setWords(data));
+    }, []);
+
+    // Перелистнуть к следующей карточке
+    const goToNextCard = () => {
+        if (words.length > 0) {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }
+    };
+
+    // Перелистнуть к предыдущей карточке
+    const goToPreviousCard = () => {
+        if (words.length > 0) {
+            setCurrentIndex(
+                (prevIndex) => (prevIndex === 0 ? words.length - 1 : prevIndex - 1)
+            );
+        }
+    };
+
+    // Если слов нет
+    if (words.length === 0) {
+        return <p>Загрузка слов...</p>;
+    }
 
     return (
-        <>
         <div className="game">
-            <div className="game-container">
-                <div className="card">
-                <div className="card-content">
-                    <p className="word-russian">Слово на русском</p>
-                    <input type="text" id="input-translation" placeholder="Введите перевод" />
-                    <button id="show-btn">Show</button>
-                </div>
-                <div className="card-back">
-                    <p className="word-english">English Translation</p>
-                </div>
-                </div>
-
-                <div className="navigation">
-                <button id="prev-btn" className="nav-btn">←</button>
-                <button id="next-btn" className="nav-btn">→</button>
-                </div>
-
-                <div className="counter">
-                <p>Learned Words: <span id="learned-count">0</span></p>
-                </div>
-            </div>
+            <h1>Игра с карточками</h1>
+            <CardDeck
+                words={words}
+                currentIndex={currentIndex}
+                goToNextCard={goToNextCard}
+                goToPreviousCard={goToPreviousCard}
+            />
         </div>
-        </>
     );
 };
 

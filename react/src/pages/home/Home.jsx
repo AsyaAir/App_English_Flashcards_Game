@@ -12,10 +12,10 @@ const Home = () => {
                 <img src={logo} alt="Logo" />
             <p>EnFLame — это увлекательный способ пополнить словарный запас и улучшить память. Используйте карточки с новыми словами, проверяйте свои знания и отслеживайте прогресс. Учиться легко и интересно!</p>
         </div>
-        <div>
+        <div className='buton'>
                 {/* Оборачиваем кнопку в компонент Link */}
                 <Link to="/game">
-                    <button type='button'>Lets START</button>
+                    <button type='button' >Lets START</button>
                 </Link>
             </div>
         </>

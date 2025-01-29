@@ -1,5 +1,4 @@
-@use 'variables' as var;
-// @use 'fonts' as font;
+@use './variables' as var;
 
 // ================ОБЩИЕ СТИЛИ=================//
 
@@ -27,162 +26,41 @@
     color: var.$text-basic-color;
   }
   
-  ul {
-    list-style-type: none;
-  }
-  
   a {
     font-weight: normal;
     font-style: normal;
     text-decoration: none;
-    color: inherit;
+    // color: inherit;
   }
   
   //==================Заголовки====================//
   
-  //этот шаблон можно добавить для заголовка h2 "Новые поступления в этом сезоне"
-  // .page-title {
-  //   margin: auto;
-  //   // margin-top: 186px; // это точно везде по-разному
-  //   font-family: $font-family;
-  //   font-weight: 500;
-  //   font-size: 3.235294117647059em; // = 55px : 17px (было 5.5em)
-  //   line-height: 110%;
-  //   letter-spacing: 0.02em;
-  //   color: $text-basic-color;
-  
-  //   @media screen and (max-width: $desktop-size) {
-  //     line-height: 70px;
-  //   }
-  
-  //   @media screen and (max-width: $tablet-size) {
-  //     font-size: 3.176470588235294em;
-  //     line-height: 64px;
-  //   }
-  
-  //   @media screen and (max-width: $mobile-size) {
-  //     font-size: 2.3529411764705883em;
-  //     line-height: 44px;
-  //   }
-  // }
-  
-  // //этот шаблон можно добавить для заголовка h3 "Новая коллекция"
-  // .title {
-  //   font-family: $font-family;
-  //   font-weight: 500;
-  //   font-size: 2.352941176470588em; // = 40px : 17px (было 4em)
-  //   line-height: 110%;
-  //   letter-spacing: 0.02em;
-  //   color: $text-basic-color;
-  
-  //   @media screen and (max-width: $tablet-size) {
-  //     font-size: 2.352941176470588em;
-  //     line-height: 44px;
-  //   }
-  
-  //   @media screen and (max-width: $mobile-size) {
-  //     font-size: 1.411764705882353em;
-  //     line-height: 28px;
-  //   }
-  // }
-  
-  // //этот шаблон можно добавить для заголовка h4 "Качество" "Скорость" "Ответственность"
-  // .subtitle {
-  //   font-family: $font-family;
-  //   font-weight: 500;
-  //   font-size: 1.5625em; // = 25px : 17px (было 2.5em)
-  //   line-height: 140%;
-  //   letter-spacing: 0.02em;
-  //   color: $text-basic-color;
-  
-  //   @media screen and (max-width: $tablet-size) {
-  //     font-size: 1.5625em;
-  //     line-height: 32px;
-  //   }
-  
-  //   @media screen and (max-width: $mobile-size) {
-  //     font-size: 1.411764705882353em;
-  //     line-height: 28px;
-  //   }
-  // }
-  
-  // .card-title {
-  //   font-family: $font-family;
-  //   font-weight: 500;
-  //   font-size: 20px;
-  //   line-height: 140%;
-  //   letter-spacing: 0.02em;
-  //   color: $text-basic-color;
-  // }
   //================Конец Заголовки==================//
   
   //===================Навигация=====================//
-  .main-menu__items {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 21px;
-    gap: 45px;
-    list-style: none;
   
-    @media screen and (max-width: 840px) {
-      display: none;
-      min-width: 153px;
-      background-color: var.$text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
-      flex-direction: column;
-      gap: 20px 0;
-      padding: 25px 35px 25px 45px;
-      position: absolute;
-      left: 0;
-      transform: translateY(-200%)
-    };
-  
-    .main-menu__link {
-      font-size: 0.8823529411764706em; //15px
-    }
-    .main-menu__link:hover {
-      color: var.$main-color;
-    }
-  }
   //===============Конец Навигация==================//
   
   //====================Логотип=====================//
   
-  .logo {
-    margin-right: 145px; //146px;
-  
-    @media screen and (max-width: 1155px) {
-      margin-right: 0px;
-    }
-  }
-  
-  .logo__link {
-    display: flex;
-    justify-content: space-between;
-  
-    font-weight: 500;
-    font-size: 0.9411764705882353em; //16px
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    gap: 11px;
-    align-items: flex-end;
-  
-    .logo__icon {
-      width: 25px;
-      height: 25px;
-      object-fit: cover;
-    }
-  }
+  /* Логотип */
+.menu__link_logo {
+  display: flex; /* Используем flexbox для горизонтального расположения */
+  align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.logo__icon {
+  width: 100px; /* Размер логотипа */
+  margin-right: 10px; /* Отступ справа от логотипа */
+}
   //==================Конец Логотип==================//
   
   //==================Кнопки====================//
   .button {
     padding: 22px 50px;
-    // width: 268px; // ширина везде разная
-    height: 68px; // высота везде одинаковая
+    width: 268px; 
+    height: 68px; 
     background: var.$main-color;
-  
     font-family: var.$font-family;
     font-weight: 400;
     font-size: 17px;
@@ -191,70 +69,28 @@
     text-align: center;
     color: var.$text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
     border: none;
-    cursor: pointer; // добавила Настя
+    cursor: pointer; 
     white-space: nowrap;
   
-    &:hover { // добавила Настя
-      background: var.$background-main_accent_button-color !important; 
+    &:hover { 
+      background: var.$background-main_accent_button-color; 
     }
   }
   
-  .button-white {
-    padding: 15px 50px;
-    width: 270px;
-    height: 68px;
-    background-color: white;
-    border: 1px solid var.$background-main_accent_button-color;
-  
-    font-family: var.$font-family;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 139%;
-    letter-spacing: 0.02em;
-    text-align: center;
-    color: var.$background-main_accent_button-color;
-    align-items: center;
-    cursor: pointer;
-    white-space: nowrap;
-  
-    &:hover {
-      color: white;
-      background-color: var.$main-color;
-    }
-  }
   //==================Конец Кнопки====================//
-  
-  //==================начало inputs====================//
-  .input {
-    font-family: inherit;
-    border: none;
-    border-bottom: 1px solid grey;
-    padding: 15px 0 15px 0;
-    max-width: 350px;
-    min-width: 250px;
-  
-    @media screen and (max-width: var.$desktop-size) {
-      max-width: 300px;
-    }
-  }
-  
-  .textarea {
-    height: 150px;
-  }
-  //==================Конец inputs====================//
   
   //================КОНЕЦ ОБЩИЕ СТИЛИ================//
   
   //Шаблон для ограничения контента, добавлять к стилям командой @extend %container;
-  %container {
-    max-width: 1170px;
-    min-width: 320px;
-    margin: 0 auto;
-    padding: 0 30px; // padding точно лишний
+  // %container {
+  //   max-width: 1170px;
+  //   min-width: 320px;
+  //   margin: 0 auto;
+  //   padding: 0 30px; // padding точно лишний
   
-    @media screen and (max-width: var.$desktop-size) {
-      // max-width: 760px;
-      padding: 0 20px;
-    }
-  }
+  //   @media screen and (max-width: var.$desktop-size) {
+  //     // max-width: 760px;
+  //     padding: 0 20px;
+  //   }
+  // }
   
