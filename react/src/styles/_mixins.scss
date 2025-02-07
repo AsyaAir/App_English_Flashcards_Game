@@ -1,5 +1,22 @@
-@use 'variables' as var;
-// @use 'fonts' as font;
+// Глобальные переменные и миксины в SCSS:
+
+@use "variables" as *; // Импортируем переменные
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-style($bg-color: $primary-color) {
+  background-color: $bg-color;
+  color: white;
+  font-size: $font-size-lg;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 // Шаблоны-миксины для названий и цен в карточках товаров (от Насти). 
 // Добавляется к стилям командой @include item-card-title или @include item-card-price
@@ -8,7 +25,7 @@
 
 // Шаблон стандартного набора шрифта для всего сайта
 @mixin standart-text {
-    font-family: var.$font-family;
+    font-family: $font-family;
     letter-spacing: 0.02em;
   }
   
@@ -17,7 +34,7 @@
     @include standart-text;
     font-weight: 500;
     line-height: 140%;
-    color: var.$text-basic-color;
+    color: $text-basic-color;
   }
   
   // Шаблон стиля названия товара в его карточке 
@@ -30,14 +47,14 @@
   @mixin item-card-price {
     @include item-card-text-style;
     font-size: 15px;
-    color: var.$additional-accent-color;
+    color: $additional-accent-color;
   }
   
   // Шаблон стиля старой цены товара в его карточке
   @mixin item-card-old-price {
     @include item-card-text-style;
     font-size: 15px;
-    color: var.$additional-accent-color;
+    color: $additional-accent-color;
     text-decoration: line-through;
   }
   

@@ -1,80 +1,89 @@
 .
- 📁 index.html
- 📁 .DS_Store
- 📁 index.css
- 📄  📁 app.css
- 📄  📁 index.css
- 📁 vite.config.js
- 📁 README.md
- 📁 public
- 📁 .gitignore
- 📁 package-lock.json
- 📁 package.json
- 📁 eslint.config.js
- 📁 structure.txt
- 📁 src
- 📄  📁 .DS_Store
- 📄  📁 App.css
- 📄  📁 index.css
- |--  📁 styles
- |--  📄  📁 _fonts.scss
- |--  📄  📁 _variables.scss
- |--  📄  📁 index.scss
- |--  📄  📁 _templates.scss
- |--  📄  📁 _mixins.scss
- |--  📄  📁 app.scss
- |--  📁 components
- |--  |--  📁 footer
- |--  |--  📄  📁 Footer.module.scss
- |--  |--  📄  📁 Footer.jsx
- |--  📄  📁 .DS_Store
- |--  |--  📁 card
- |--  |--  📄  📁 Card.jsx
- |--  |--  📄  📁 card.module.scss
- |--  |--  📁 forms
- |--  |--  📄  📁 Forms.jsx
- |--  |--  📄  📁 Forms.module.scss
- |--  |--  📁 buttons
- |--  |--  |--  📁 right
- |--  |--  |--  📁 show
- |--  |--  |--  📁 left
- |--  |--  |--  📁 trash
- |--  |--  |--  📁 clear
- |--  |--  |--  📁 edit
- |--  |--  |--  📁 add
- |--  |--  📁 carddeck
- |--  |--  📄  📁 CardDeck.jsx
- |--  |--  📄  📁 CardDeck.module.scss
- |--  |--  📁 counter
- |--  |--  📁 header
- |--  |--  📄  📁 Header.jsx
- |--  |--  📄  📁 Header.module.scss
- 📄  📁 main.jsx
- 📄  📁 App.jsx
- |--  📁 assets
- |--  📄  📁 .DS_Store
- |--  |--  📁 images
- |--  |--  📄  📁 klipartz.com.png
- |--  |--  📄  📁 .DS_Store
- |--  |--  📄  📁 Lovepik_com-380158271-realistic-wind-golden-yellow-flame-burning-fire-circle-fire-spark-free-fire.png
- |--  |--  📄  📁 Lovepik_com-400361051-blue-line.png
- |--  |--  📄  📁 pngegg.png
- |--  |--  📄  📁 fire-ring-2091656_640.png
- |--  |--  📄  📁 Дизайн без названия.png
- |--  |--  📁 fonts
- |--  |--  📄  📁 Raleway-Bold.woff2
- |--  |--  📄  📁 Raleway-Medium.woff2
- |--  |--  📄  📁 Raleway-Regular.woff2
- |--  📁 pages
- |--  |--  📁 home
- |--  |--  📄  📁 Home.module.scss
- |--  |--  📄  📁 Home.jsx
- |--  |--  📁 game
- |--  |--  📄  📁 Game.module.scss
- |--  |--  📄  📁 Game.jsx
- |--  |--  📁 results
- |--  |--  📄  📁 Results.module.scss
- |--  |--  📄  📁 Results.jsx
- |--  |--  📁 vocabualary
- |--  |--  📄  📁 Vocabualary.module.scss
- |--  |--  📄  📁 Vocabualary.jsx
+ 📄 index.html
+ 📄 .DS_Store
+ |-- dist
+ |--  📄 index.html
+ |--  |-- assets
+ |--  |--  📄 index-RZLz4hGO.css
+ |--  |--  📄 pngegg-TG__QPtb.png
+ |--  |--  📄 index-Hy2uZNju.js
+ 📄 index.css
+ |--  📄 app.css
+ |--  📄 index.css
+ 📄 vite.config.js
+ 📄 README.md
+ |-- public
+ 📄 .gitignore
+ 📄 package-lock.json
+ 📄 package.json
+ 📄 eslint.config.js
+ 📄 structure.txt
+ |-- src
+ |--  📄 .DS_Store
+ |--  📄 App.css
+ |--  📄 index.css
+ |--  |-- styles
+ |--  |--  📄 _fonts.scss
+ |--  |--  📄 _variables.scss
+ |--  |--  📄 index.scss
+ |--  |--  📄 global.scss
+ |--  |--  📄 _templates.scss
+ |--  |--  📄 _mixins.scss
+ |--  |--  📄 app.scss
+ |--  📄 index.css.map
+ |--  |-- components
+ |--  |--  |-- footer
+ |--  |--  |--  📄 Footer.module.scss
+ |--  |--  |--  📄 Footer.jsx
+ |--  |--  📄 .DS_Store
+ |--  |--  |-- card
+ |--  |--  |--  📄 Card.jsx
+ |--  |--  |--  📄 card.module.scss
+ |--  |--  |-- forms
+ |--  |--  |--  📄 Forms.jsx
+ |--  |--  |--  📄 Forms.module.scss
+ |--  |--  |-- buttons
+ |--  |--  |--  |-- right
+ |--  |--  |--  |-- show
+ |--  |--  |--  |-- left
+ |--  |--  |--  |-- trash
+ |--  |--  |--  |-- clear
+ |--  |--  |--  |-- edit
+ |--  |--  |--  |-- add
+ |--  |--  |-- carddeck
+ |--  |--  |--  📄 CardDeck.jsx
+ |--  |--  |--  📄 CardDeck.module.scss
+ |--  |--  |-- counter
+ |--  |--  |-- header
+ |--  |--  |--  📄 Header.jsx
+ |--  |--  |--  📄 Header.module.scss
+ |--  📄 main.jsx
+ |--  📄 App.jsx
+ |--  📄 App.css.map
+ |--  |-- assets
+ |--  |--  📄 .DS_Store
+ |--  |--  |-- images
+ |--  |--  |--  📄 klipartz.com.png
+ |--  |--  |--  📄 .DS_Store
+ |--  |--  |--  📄 Lovepik_com-380158271-realistic-wind-golden-yellow-flame-burning-fire-circle-fire-spark-free-fire.png
+ |--  |--  |--  📄 Lovepik_com-400361051-blue-line.png
+ |--  |--  |--  📄 pngegg.png
+ |--  |--  |--  📄 fire-ring-2091656_640.png
+ |--  |--  |--  📄 Дизайн без названия.png
+ |--  |--  |-- fonts
+ |--  |--  |--  📄 Raleway-Bold.woff2
+ |--  |--  |--  📄 Raleway-Medium.woff2
+ |--  |--  |--  📄 Raleway-Regular.woff2
+ |--  |-- pages
+ |--  |--  |-- home
+ |--  |--  |--  📄 Home.module.scss
+ |--  |--  |--  📄 Home.jsx
+ |--  |--  |-- game
+ |--  |--  |--  📄 Game.module.scss
+ |--  |--  |--  📄 Game.jsx
+ |--  |--  |-- results
+ |--  |--  |--  📄 Results.module.scss
+ |--  |--  |--  📄 Results.jsx
+ |--  |--  |-- vocabulary
+ |--  |--  |--  📄 Vocabulary.jsx
+ |--  |--  |--  📄 Vocabulary.module.scss

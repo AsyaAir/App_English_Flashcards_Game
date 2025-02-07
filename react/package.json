@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:css": "sass src/styles/index.scss src/index.css --no-source-map",
-    "watch:css": "sass --watch src/index.scss:src/index.css"
+    "watch:css": "sass --watch src/styles/index.scss:src/index.css"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",

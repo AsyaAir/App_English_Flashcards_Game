@@ -1,3 +1,19 @@
+// @use "../styles/variables" as v;
+
+// .button {
+//   background-color: v.$primary-color;
+//   color: white;
+//   font-size: var(--font-size-lg);
+//   padding: 10px 20px;
+//   border-radius: 5px;
+//   cursor: pointer;
+
+//   @include v.flex-center;
+// }
+// v.$primary-color – SCSS-переменная.
+// •	var(--font-size-lg) – CSS-переменная, которую можно менять динамически.
+// •	@include v.flex-center; – миксин.
+
 @use '../../styles/index.scss';
 
 .card {

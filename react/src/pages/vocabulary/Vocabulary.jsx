@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Vocabualary.module.scss';
+import './Vocabulary.module.scss';
 
 function Vocabualary() {
     const [words, setWords] = useState([]);

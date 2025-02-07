@@ -1,6 +1,7 @@
 // app.scss используется для компоненто-ориентированных стилей.
 
-// app.scss отвечает за подключение глобальных стилей и объединение всего проекта в единое пространство. Обычно он используется в App.jsx как глобальный стиль:
+// app.scss отвечает за подключение глобальных стилей и объединение всего проекта в единое пространство. 
+// Обычно он используется в App.jsx как глобальный стиль:
 
 // Подключение глобальных базовых стилей
 @use './index.scss';
@@ -8,12 +9,13 @@
 // Подключение стилей для компонентов (глобальные)
 @use '../components/header/Header.module.scss';
 @use '../components/footer/Footer.module.scss';
-@use '../components/carddeck/CardDeck.module.scss';
-@use '../components/card/Card.module.scss';
 @use '../pages/home/Home.module.scss';
 @use '../pages/game/Game.module.scss';
-@use '../pages/vocabualary/Vocabualary.module.scss';
-@use '../pages/results/Results.module.scss'
+@use '../pages/vocabulary/Vocabulary.module.scss';
+@use '../pages/results/Results.module.scss';
+@use '../components/carddeck/CardDeck.module.scss';
+@use '../components/card/Card.module.scss';
+
 
 // #root {
 //     max-width: 1280px;

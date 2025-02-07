@@ -11,6 +11,10 @@
 @forward './_mixins.scss';
 @forward './_templates.scss';
 
+// Что делает @forward:
+// 	•	Все стили из этих файлов будут доступны, когда ты подключишь index.scss, как ты это делаешь в app.scss.
+// 	•	@forward — это хороший способ делегировать импорт всех стилей централизованно.
+
 // :root {
 //     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 //     line-height: 1.5;
