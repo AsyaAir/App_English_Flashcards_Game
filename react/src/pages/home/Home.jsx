@@ -1,5 +1,6 @@
 import './Home.module.scss';
-import logo from '../../assets/images/pngegg.png';
+import logo from '../../assets/images/logo_EnFLame_3.jpg';
+import StartButton from '../../components/buttons/start/StartButton.jsx';
 import { NavLink } from 'react-router'; 
 
 
@@ -11,12 +12,12 @@ const Home = () => {
             <h1>English Flashcards Game EnFLame</h1>
             <h2>Добро пожаловать в EnFlame — игру для изучения английских слов!</h2>
             <img src={logo} alt="Logo" className='logo' />
-            <p>EnFLame — это увлекательный способ пополнить словарный запас и улучшить память. Используйте карточки с новыми словами, проверяйте свои знания и отслеживайте прогресс. Учиться легко и интересно!</p>
+            <p className='hometext'>EnFLame — это увлекательный способ пополнить словарный запас и улучшить память. Используйте карточки с новыми словами, проверяйте свои знания и отслеживайте прогресс. Учиться легко и интересно!</p>
         </div>
         <div className='button'>
                 {/* Оборачиваем кнопку в компонент NavLink */}
                 <NavLink to="/game">
-                    <button type='button' >Lets START</button>
+                    <StartButton />
                 </NavLink>
             </div>
         </>

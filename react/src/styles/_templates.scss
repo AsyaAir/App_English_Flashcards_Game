@@ -14,83 +14,19 @@
     scroll-behavior: smooth;
     box-sizing: border-box;
   }
-  
-  // body {
-  //   width: 100%;
-  //   height: 100%;
-  //   font-family: var.$font-family;
-  //   font-weight: 300;
-  //   font-size: 17px;
-  //   line-height: 140%;
-  //   letter-spacing: 0.02em;
-  //   color: var.$text-basic-color;
-  // }
-  
-  // a {
-  //   font-weight: normal;
-  //   font-style: normal;
-  //   text-decoration: none;
-  //   // color: inherit;
-  // }
-  
-  //==================Заголовки====================//
-  
-  //================Конец Заголовки==================//
-  
-  //===================Навигация=====================//
-  
-  //===============Конец Навигация==================//
-  
-  //====================Логотип=====================//
-  
-  /* Логотип */
-// .menu__link_logo {
-//   display: flex; /* Используем flexbox для горизонтального расположения */
-//   align-items: center; /* Центрируем элементы по вертикали */
-// }
 
-// .logo__icon {
-//   width: 100px; /* Размер логотипа */
-//   margin-right: 10px; /* Отступ справа от логотипа */
-// }
-  //==================Конец Логотип==================//
-  
-  //==================Кнопки====================//
-  // .button {
-  //   padding: 22px 50px;
-  //   width: 268px; 
-  //   height: 68px; 
-  //   background: var.$main-color;
-  //   font-family: var.$font-family;
-  //   font-weight: 400;
-  //   font-size: 17px;
-  //   line-height: 139%;
-  //   letter-spacing: 0.02em;
-  //   text-align: center;
-  //   color: var.$text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
-  //   border: none;
-  //   cursor: pointer; 
-  //   white-space: nowrap;
-  
-  //   &:hover { 
-  //     background: var.$background-main_accent_button-color; 
-  //   }
-  // }
-  
-  //==================Конец Кнопки====================//
-  
-  //================КОНЕЦ ОБЩИЕ СТИЛИ================//
-  
-  //Шаблон для ограничения контента, добавлять к стилям командой @extend %container;
-  // %container {
-  //   max-width: 1170px;
-  //   min-width: 320px;
-  //   margin: 0 auto;
-  //   padding: 0 30px; // padding точно лишний
-  
-  //   @media screen and (max-width: var.$desktop-size) {
-  //     // max-width: 760px;
-  //     padding: 0 20px;
-  //   }
-  // }
-  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var.$main-color;
+    font-family: var.$font-family;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var.$main-color;
+    font-family: var.$font-family;
+  }

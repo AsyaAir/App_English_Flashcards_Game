@@ -1,11 +1,11 @@
 // Глобальные переменные в SCSS:
 
 // Colors
-$main-color: #a9def8;
+$main-color: #355d73;
 
 $text-basic-color: #60728e;
 $text-form_labels-color: #868686;
-$text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color: #fff;
+$text-main_colored_buttons: #fff;
 
 $background-beige-color: #f5e5e4;
 $background-main_accent_button-color: #496f8d;
@@ -22,24 +22,3 @@ $font-second-famil: "Roboto", sans-serif;
 $desktop-size: 1155px;
 $tablet-size: 767px;
 $mobile-size: 429px;
-
-// :export {
-//     mainColor: $main-color;
-//     text-basicColor: $text-basic-color;
-//     textFormLabelsColor: $text-form_labels-color;
-//     textMainColoredButtonsAndQuantityOfGoodsInBasketgitColor: $text-main_colored_buttons_and_quantity_of_goods_in_basketgit-color;
-
-//     backgroundBeigeColor: $background-beige-color;
-//     backgroundMainAccentButtonColor: $background-main_accent_button-color;
-//     additionalAccentColor: $additional-accent-color;
-    
-//     backgroundMainStyle: $background-main-style;
-//     backgroundArrowStyle: $background-arrow-style;
-
-//     fontFamily: $font-family;
-//     fontSecondFamil: $font-second-famil;
-    
-//     desktopSize: $desktop-size;
-//     tabletSize: $tablet-size;
-//     mobileSize: $mobile-size;
-// }

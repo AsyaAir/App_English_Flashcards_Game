@@ -8,6 +8,8 @@
   position: fixed;
   width: 100%;
   margin: 0 20px 20 px 20px;
+  font-size: large;
+  color: var.$main-color;
   // padding: 33px 20px 34px 20px;
   // top: 0;
   // left: 0;
@@ -27,6 +29,12 @@
     order: 1;
     position: relative;
   }
+}
+.logo__icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 35%;
 }
 
 .menu__link {
