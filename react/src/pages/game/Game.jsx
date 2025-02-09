@@ -5,22 +5,24 @@ import { useState, useEffect } from 'react';
 const Game = () => {
     const [words, setWords] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [learnedWordsCount, setLearnedWordsCount] = useState(0);
+    const [totalWords, setTotalWords] = useState(0); // Всего слов
 
     useEffect(() => {
-        // Загрузка слов с API
         fetch('http://itgirlschool.justmakeit.ru/api/words')
             .then((response) => response.json())
-            .then((data) => setWords(data));
+            .then((data) => {
+                setWords(data);
+                setTotalWords(data.length); // Устанавливаем количество слов
+            });
     }, []);
 
-    // Перелистнуть к следующей карточке
     const goToNextCard = () => {
         if (words.length > 0) {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
         }
     };
 
-    // Перелистнуть к предыдущей карточке
     const goToPreviousCard = () => {
         if (words.length > 0) {
             setCurrentIndex(
@@ -29,20 +31,28 @@ const Game = () => {
         }
     };
 
-    // Если слов нет
+    // Увеличение счетчика изученных слов
+    const handleCorrectAnswer = () => {
+        setLearnedWordsCount((prevCount) => prevCount + 1);
+    };
+
     if (words.length === 0) {
         return <p>Загрузка слов...</p>;
     }
 
     return (
         <div className="game">
-            <h1>Игра с карточками</h1>
+            <h1>Игра с карточками EnFLame</h1>
             <CardDeck
                 words={words}
                 currentIndex={currentIndex}
                 goToNextCard={goToNextCard}
                 goToPreviousCard={goToPreviousCard}
+                onCorrectAnswer={handleCorrectAnswer}
             />
+            <p className="correctanswers">
+                Изучено слов: {learnedWordsCount} из {totalWords}
+            </p>
         </div>
     );
 };

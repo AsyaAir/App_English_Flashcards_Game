@@ -1,26 +1,29 @@
-// Теперь давайте создадим родительский компонент, который будет отвечать за отображение массива карточек и перелистывание их вперед-назад. Компонент будет получать массив слов через props и управлять индексом текущей карточки.
+// Cоздание родительского компонента, который будет отвечать за отображение массива карточек 
+// и перелистывание их вперед-назад. 
+// Компонент будет получать массив слов через props и управлять индексом текущей карточки.
 
 import './CardDeck.module.scss';
 import Card from '../card/Card';
 import PropTypes from 'prop-types';
 
-const CardDeck = ({ words, currentIndex, goToNextCard, goToPreviousCard }) => {
+const CardDeck = ({ words, currentIndex, goToNextCard, goToPreviousCard, onCorrectAnswer }) => {
     return (
         <div className="card-deck">
-            <div className="card-container">
-                <Card
-                    wordEnglish={words[currentIndex].english}
-                    transcription={words[currentIndex].transcription}
-                    wordRussian={words[currentIndex].russian}
-                    translation={words[currentIndex].translation}
-                />
-            </div>
-            <div className="navigation">
+            <div className="card-wrapper">
                 <button onClick={goToPreviousCard} className="nav-btn">
-                    ← Предыдущая
+                    Предыдущая <br />←
                 </button>
+                <div className="card-container">
+                    <Card
+                        wordEnglish={words[currentIndex].english}
+                        transcription={words[currentIndex].transcription}
+                        wordRussian={words[currentIndex].russian}
+                        onCorrectAnswer={onCorrectAnswer}
+                        goToNextCard={goToNextCard} // Передаем для автоматического перехода
+                    />
+                </div>
                 <button onClick={goToNextCard} className="nav-btn">
-                    Следующая →
+                    Следующая <br />→
                 </button>
             </div>
         </div>
@@ -33,12 +36,12 @@ CardDeck.propTypes = {
             english: PropTypes.string.isRequired,
             transcription: PropTypes.string.isRequired,
             russian: PropTypes.string.isRequired,
-            translation: PropTypes.string.isRequired,
         })
     ).isRequired,
     currentIndex: PropTypes.number.isRequired,
     goToNextCard: PropTypes.func.isRequired,
     goToPreviousCard: PropTypes.func.isRequired,
+    onCorrectAnswer: PropTypes.func.isRequired,
 };
 
 export default CardDeck;

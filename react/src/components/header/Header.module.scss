@@ -1,19 +1,15 @@
 @use '../../styles/index.scss' as var;
 
   .header {
-  // @include container;
+  @include var.flex-center;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   width: 100%;
-  margin: 0 20px 20 px 20px;
+  margin: 0 20px 50px 20px;
   font-size: large;
   color: var.$main-color;
-  // padding: 33px 20px 34px 20px;
-  // top: 0;
-  // left: 0;
-  // right: 0;
 }
 
 .menu {
@@ -22,7 +18,7 @@
   align-items: center;
 
   @media screen and (max-width: var.$desktop-size) {
-    // margin-right: 0px;
+    margin-right: 0px;
   }
 
   @media screen and (max-width: var.$tablet-size) {
@@ -34,20 +30,19 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 35%;
+  max-width: 50%;
 }
 
 .menu__link {
   display: flex; 
   list-style: none; 
   width: 100%;
-  height: auto;
 }
 
 .menu__link a {
   text-decoration: none; /* Убираем подчеркивание */
   color: var.$text-basic-color; /* Цвет текста */
-  padding: 10px 10px; /* Отступы вокруг текста */
+  padding: 10px 10px 10px 10px; /* Отступы вокруг текста */
   display: inline-block; /* Делаем ссылки блоками для правильного выравнивания */
 }
 

@@ -1,21 +1,43 @@
 import { useEffect, useState } from 'react';
 import './Vocabulary.module.scss';
 
-function Vocabualary() {
+function Vocabulary() {
     const [words, setWords] = useState([]);
-    
-    // Загружаем данные из API при монтировании компонента
+    const [editingRow, setEditingRow] = useState(null); // ID редактируемой строки
+    const [editValues, setEditValues] = useState({}); // Значения в режиме редактирования
+
+    // Загружаем данные из API
     useEffect(() => {
         fetch('http://itgirlschool.justmakeit.ru/api/words')
             .then(response => response.json())
             .then(data => setWords(data))
-            .catch(error => console.error('Error fetching words:', error));
+            .catch(error => console.error('Ошибка загрузки слов:', error));
     }, []);
-    
-    // Функция для заполнения селектов
-    const getUniqueValues = (field) => {
-        const uniqueValues = [...new Set(words.map(word => word[field]))];
-        return uniqueValues;
+
+    // Включить режим редактирования
+    const handleEditClick = (id, word) => {
+        setEditingRow(id);
+        setEditValues(word); // Загружаем текущие данные в редактируемые поля
+    };
+
+    // Отмена редактирования
+    const handleCancelClick = () => {
+        setEditingRow(null);
+        setEditValues({});
+    };
+
+    // Обновление значения в поле
+    const handleChange = (e, field) => {
+        setEditValues({ ...editValues, [field]: e.target.value });
+    };
+
+    // Сохранение изменений
+    const handleSaveClick = (id) => {
+        const updatedWords = words.map(word =>
+            word.id === id ? { ...word, ...editValues } : word
+        );
+        setWords(updatedWords);
+        setEditingRow(null);
     };
 
     return (
@@ -32,58 +54,39 @@ function Vocabualary() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="input-row">
-                        <td>
-                            <select id="englishSelect">
-                                <option value="">Select...</option>
-                                {getUniqueValues('english').map((english, index) => (
-                                    <option key={index} value={english}>
-                                        {english}
-                                    </option>
-                                ))}
-                            </select>
-                        </td>
-                        <td>
-                            <select id="transcriptionSelect">
-                                <option value="">Select...</option>
-                                {getUniqueValues('transcription').map((transcription, index) => (
-                                    <option key={index} value={transcription}>
-                                        {transcription}
-                                    </option>
-                                ))}
-                            </select>
-                        </td>
-                        <td>
-                            <select id="russianSelect">
-                                <option value="">Select...</option>
-                                {getUniqueValues('russian').map((russian, index) => (
-                                    <option key={index} value={russian}>
-                                        {russian}
-                                    </option>
-                                ))}
-                            </select>
-                        </td>
-                        <td>
-                            <select id="tagsSelect">
-                                <option value="">Select...</option>
-                                {getUniqueValues('tags').map((tags, index) => (
-                                    <option key={index} value={tags}>
-                                        {tags}
-                                    </option>
-                                ))}
-                            </select>
-                        </td>
-                        <td>
-                            <button id="addBtn">Add</button>
-                        </td>
-                        <td>
-                            <button id="clearBtn">Clear</button>
-                        </td>
-                    </tr>
+                    {words.map(word => (
+                        <tr key={word.id}>
+                            {editingRow === word.id ? (
+                                <>
+                                    <td><input type="text" value={editValues.english} onChange={(e) => handleChange(e, 'english')} /></td>
+                                    <td><input type="text" value={editValues.transcription} onChange={(e) => handleChange(e, 'transcription')} /></td>
+                                    <td><input type="text" value={editValues.russian} onChange={(e) => handleChange(e, 'russian')} /></td>
+                                    <td><input type="text" value={editValues.tags} onChange={(e) => handleChange(e, 'tags')} /></td>
+                                    <td>
+                                        <button onClick={() => handleSaveClick(word.id)}>💾 Сохранить</button>
+                                        <button onClick={handleCancelClick}>❌ Отмена</button>
+                                    </td>
+                                </>
+                            ) : (
+                                <>
+                                    <td>{word.english}</td>
+                                    <td>{word.transcription}</td>
+                                    <td>{word.russian}</td>
+                                    <td>{word.tags}</td>
+                                    <td>
+                                        <button onClick={() => handleEditClick(word.id, word)}>✏️ Редактировать</button>
+                                    </td>
+                                    <td>
+                                        <button>🗑️ Удалить</button>
+                                    </td>
+                                </>
+                            )}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
     );
 }
 
-export default Vocabualary;
+export default Vocabulary;
