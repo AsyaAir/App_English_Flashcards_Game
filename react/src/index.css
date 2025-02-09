@@ -1,19 +1,25 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Raleway";
-  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Regular.woff2");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Raleway";
-  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Medium.woff2");
-  font-weight: 700;
-}
-@font-face {
-  font-family: "Raleway";
-  src: url("/App_English_Flashcards_Game/react/src/assets/fonts/Raleway-Bold.woff2");
+  src: url("/fonts/Raleway-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-style: normal;
 }
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  font-family: "Raleway", sans-serif;
+}
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -27,4 +33,18 @@ html {
   box-sizing: border-box;
 }
 
-/* Логотип */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #355d73;
+  font-family: "Raleway", sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #355d73;
+  font-family: "Raleway", sans-serif;
+}

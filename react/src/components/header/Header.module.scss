@@ -1,53 +1,112 @@
 @use '../../styles/index.scss' as var;
 
-  .header {
-  @include var.flex-center;
+.header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   width: 100%;
-  margin: 0 20px 50px 20px;
-  font-size: large;
-  color: var.$main-color;
+  background-color: var.$background-main-style; /* Убираем прозрачность */
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .menu {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  @media screen and (max-width: var.$desktop-size) {
-    margin-right: 0px;
-  }
-
-  @media screen and (max-width: var.$tablet-size) {
-    order: 1;
-    position: relative;
-  }
+  flex-grow: 1; /* Меню растягивается на всю доступную ширину */
+  justify-content: space-between; /* Растягиваем пункты меню */
 }
-.logo__icon {
+
+.logo {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  max-width: 50%;
+  gap: 10px; /* Отступ между иконкой и текстом */
+}
+
+.logo__icon {
+  width: 40px; /* Размер логотипа */
+  height: auto;
+}
+
+.logo__text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var.$text-basic-color;
 }
 
 .menu__link {
-  display: flex; 
-  list-style: none; 
-  width: 100%;
+  display: flex;
+  list-style: none;
+  flex-grow: 1; /* Занимает доступное пространство */
+  justify-content: space-around; /* Распределяем пункты меню */
 }
 
 .menu__link a {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: var.$text-basic-color; /* Цвет текста */
-  padding: 10px 10px 10px 10px; /* Отступы вокруг текста */
-  display: inline-block; /* Делаем ссылки блоками для правильного выравнивания */
+  text-decoration: none;
+  color: var.$text-basic-color;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .menu__link a:hover {
-  background-color: var.$background-main-style; /* Цвет фона при наведении */
-  color: var.$additional-accent-color; /* Цвет текста при наведении */
+  background-color: var.$additional-accent-color;
+  color: white;
+  border-radius: 5px;
 }
 
+/* 🔥 Адаптация для разных экранов */
+@media screen and (max-width: var.$desktop-size) {
+  .menu {
+    gap: 20px;
+  }
+
+  .menu__link {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: var.$tablet-size) {
+  .header {
+    padding: 8px 15px; /* Ещё немного уменьшим высоту */
+  }
+
+  .menu {
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .menu__link a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+@media screen and (max-width: var.$mobile-size) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu__link {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .menu__link a {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
