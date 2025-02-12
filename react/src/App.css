@@ -1,19 +1,19 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Raleway";
-  src: url("/fonts/Raleway-Regular.woff2") format("woff2");
+  src: url("/fonts/Raleway-Regular.ttf") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url("/fonts/Raleway-Medium.woff2") format("woff2");
+  src: url("/fonts/Raleway-Medium.ttf") format("woff");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url("/fonts/Raleway-Bold.woff2") format("woff2");
+  src: url("/fonts/Raleway-Bold.ttf") format("woff");
   font-weight: 700;
   font-style: normal;
 }
@@ -76,7 +76,7 @@ h2 {
 }
 
 .logo__icon {
-  width: 40px; /* Размер логотипа */
+  width: 40px;
   height: auto;
 }
 
@@ -90,7 +90,7 @@ h2 {
   display: flex;
   list-style: none;
   flex-grow: 1; /* Занимает доступное пространство */
-  justify-content: space-around; /* Распределяем пункты меню */
+  justify-content: space-around;
 }
 
 .menu__link a {
@@ -107,7 +107,7 @@ h2 {
   border-radius: 5px;
 }
 
-/* 🔥 Адаптация для разных экранов */
+/* Адаптация для разных экранов */
 @media screen and (max-width: 1155px) {
   .menu {
     gap: 20px;
@@ -118,7 +118,7 @@ h2 {
 }
 @media screen and (max-width: 767px) {
   .header {
-    padding: 8px 15px; /* Ещё немного уменьшим высоту */
+    padding: 8px 15px;
   }
   .menu {
     gap: 15px;
@@ -243,36 +243,103 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
+  padding: 0 20px;
+  max-width: 100%;
+  overflow-x: auto; /* Для горизонтальной прокрутки на маленьких экранах */
+  overflow-y: auto; /* Для вертикальной прокрутки */
+  height: calc(100vh - 120px); /* Ограничиваем высоту для уменьшения вертикального скролла */
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
-.th, .td {
-  padding: 10px;
+th, td {
+  padding: 8px 12px;
   text-align: left;
-  border: 1px solid #161010;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
 }
 
 button {
-  padding: 5px 10px;
+  padding: 5px 8px;
+  font-size: 12px;
   background-color: #4CAF50;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Плавное изменение фона */
 }
 
 button:hover {
   background-color: #45a049;
 }
 
-.input {
+input {
   padding: 5px;
   width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px; /* Скругление полей ввода */
+  font-size: 14px;
 }
 
+/* Адаптивность для разных размеров экранов */
+@media (max-width: 1155px) {
+  .table {
+    font-size: 13px; /* Меньше шрифт для экранов с размером до 1155px */
+  }
+  button {
+    padding: 4px 7px;
+    font-size: 11px;
+  }
+}
+@media (max-width: 767px) {
+  .table-container {
+    padding: 0 20px;
+  }
+  .table {
+    font-size: 12px;
+  }
+  button {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 429px) {
+  .table-container {
+    padding: 0 15px;
+  }
+  .table {
+    font-size: 11px;
+  }
+  button {
+    padding: 3px 5px;
+    font-size: 9px;
+  }
+  input {
+    font-size: 13px;
+  }
+  input th, input td {
+    padding: 6px 8px;
+  }
+}
 .card-deck {
   display: flex;
   flex-direction: column;
