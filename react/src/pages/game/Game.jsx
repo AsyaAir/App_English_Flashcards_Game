@@ -42,7 +42,11 @@ const Game = () => {
 
     return (
         <div className="game">
-            <h1>Игра с карточками EnFLame</h1>
+            <h1>Игра с карточками English <br></br> Flashcards Game <br></br>
+                <span className="game__text-part"> En</span>
+                <span className="game__text-part--middle">FL</span>
+                <span className="game__text-part">ame </span>
+            </h1>
             <CardDeck
                 words={words}
                 currentIndex={currentIndex}

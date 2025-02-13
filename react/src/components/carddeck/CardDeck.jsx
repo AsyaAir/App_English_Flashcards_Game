@@ -10,9 +10,11 @@ const CardDeck = ({ words, currentIndex, goToNextCard, goToPreviousCard, onCorre
     return (
         <div className="card-deck">
             <div className="card-wrapper">
-                <button onClick={goToPreviousCard} className="nav-btn">
-                    Предыдущая <br />←
-                </button>
+                <div className="card-wrapper__left-button">
+                    <button onClick={goToPreviousCard} className="nav-btn">
+                        Предыдущая <br />←
+                    </button>
+                </div>
                 <div className="card-container">
                     <Card
                         wordEnglish={words[currentIndex].english}
@@ -22,9 +24,12 @@ const CardDeck = ({ words, currentIndex, goToNextCard, goToPreviousCard, onCorre
                         goToNextCard={goToNextCard} // Передаем для автоматического перехода
                     />
                 </div>
-                <button onClick={goToNextCard} className="nav-btn">
-                    Следующая <br />→
-                </button>
+                <div className="card-wrapper__right-button">
+                    <button onClick={goToNextCard} className="nav-btn">
+                        Следующая <br />→
+                    </button>
+                </div>
+                
             </div>
         </div>
     );

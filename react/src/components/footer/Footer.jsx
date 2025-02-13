@@ -5,7 +5,7 @@ import styles from './Footer.module.scss'; // Импортируем стили 
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <p className={styles.text}>by AsyaAir</p>
+            <p className={styles.text}>by AsyaAir 2025</p>
         </footer>
     );
 };

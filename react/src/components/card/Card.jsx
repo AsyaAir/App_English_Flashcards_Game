@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 const Card = ({ wordEnglish, transcription, wordRussian, onCorrectAnswer, goToNextCard }) => {
     const [isFlipped, setIsFlipped] = useState(false);
     const [userTranslation, setUserTranslation] = useState('');
+    const [isCorrect, setIsCorrect] = useState(null);  // Флаг для проверки правильности ответа
     const checkButtonRef = useRef(null);
 
     const handleInputChange = (e) => {
@@ -18,13 +19,16 @@ const Card = ({ wordEnglish, transcription, wordRussian, onCorrectAnswer, goToNe
 
         if (userTranslation.trim().toLowerCase() === wordRussian.toLowerCase()) {
             onCorrectAnswer(); // Увеличиваем счетчик
+            setIsCorrect(true); // Ответ правильный
+        } else {
+            setIsCorrect(false); // Ответ неверный
         }
+    };
 
-        setTimeout(() => {
-            setIsFlipped(false); // Переворачиваем обратно
-            setUserTranslation(''); // Очищаем поле ввода
-            goToNextCard(); // Переход к следующей карточке
-        }, 10000); // Через 10 секунд автоматически переходит к следующей карточке
+    const handleTryAgain = () => {
+        setIsFlipped(false); // Переворачиваем карточку обратно
+        setUserTranslation(''); // Очищаем поле ввода
+        setIsCorrect(null); // Сбрасываем состояние проверки
     };
 
     useEffect(() => {
@@ -32,6 +36,16 @@ const Card = ({ wordEnglish, transcription, wordRussian, onCorrectAnswer, goToNe
             checkButtonRef.current.focus();
         }
     }, [wordEnglish]);
+
+    useEffect(() => {
+        // Если ответ был правильный, переходим к следующей карточке после 10 секунд
+        if (isCorrect === true) {
+            const timer = setTimeout(() => {
+                goToNextCard();
+            }, 10000); // Через 10 секунд автоматически переходим к следующей карточке
+            return () => clearTimeout(timer);
+        }
+    }, [isCorrect, goToNextCard]);
 
     return (
         <div className={`card ${isFlipped ? 'flipped' : ''}`}>
@@ -44,6 +58,7 @@ const Card = ({ wordEnglish, transcription, wordRussian, onCorrectAnswer, goToNe
                         value={userTranslation}
                         onChange={handleInputChange}
                         placeholder="Введите перевод"
+                        className={isCorrect === false ? 'incorrect' : ''} // Изменение стиля поля ввода, если ответ неверный
                     />
                     <button onClick={handleCheckTranslation} ref={checkButtonRef}>
                         Проверить
@@ -55,6 +70,9 @@ const Card = ({ wordEnglish, transcription, wordRussian, onCorrectAnswer, goToNe
                     <p className="transcription">{transcription}</p>
                     <p className="translation">Правильный перевод: {wordRussian}</p>
                     <p className="user-translation">Ваш ответ: {userTranslation}</p>
+                    {isCorrect === false && (
+                        <button onClick={handleTryAgain}>Неверно, попробуйте снова</button>
+                    )}
                 </div>
             )}
         </div>

@@ -1,28 +1,32 @@
-@use '../../styles/index.scss' as *;
+@use '../../styles/index.scss' as var;
 
-.table-container {
-    @include flex-center;
+
+
+.vocabulary {
+
+    // margin-top: 20px;  
+    // padding: 0 20px;  
+    // max-width: 100%;
+    // overflow-x: auto;  /* Для горизонтальной прокрутки на маленьких экранах */
+    // overflow-y: auto;  /* Для вертикальной прокрутки */
+    // height: calc(100vh - 120px);  /* Ограничиваем высоту для уменьшения вертикального скролла */
+
+    display: flex;
     flex-direction: column;
-    margin-top: 20px;  
-    padding: 0 20px;  
-    max-width: 100%;
-    overflow-x: auto;  /* Для горизонтальной прокрутки на маленьких экранах */
-    overflow-y: auto;  /* Для вертикальной прокрутки */
-    height: calc(100vh - 120px);  /* Ограничиваем высоту для уменьшения вертикального скролла */
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0 20px 20px;
+    max-height: 100vh;
+    background-color: var.$background-main-style;
+    color: var.$text-basic-color;
 }
 
-h2 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;  
-    margin-top: 0;  
-}
 
 .table {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    margin-top: 20px;
+    // margin-top: 20px;
 }
 
 th, td {
@@ -61,7 +65,7 @@ input {
 }
 
 /* Адаптивность для разных размеров экранов */
-@media (max-width: $desktop-size) {
+@media (max-width: var.$desktop-size) {
     .table {
         font-size: 13px;  /* Меньше шрифт для экранов с размером до 1155px */
     }
@@ -72,7 +76,7 @@ input {
     }
 }
 
-@media (max-width: $tablet-size) {
+@media (max-width: var.$tablet-size) {
     .table-container {
         padding: 0 20px; 
     }
@@ -87,7 +91,7 @@ input {
     }
 }
 
-@media (max-width: $mobile-size) {
+@media (max-width: var.$mobile-size) {
     .table-container {
         padding: 0 15px;
     }

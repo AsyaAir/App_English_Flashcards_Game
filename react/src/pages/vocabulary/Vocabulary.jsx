@@ -41,7 +41,7 @@ function Vocabulary() {
     };
 
     return (
-        <div className="table-container">
+        <div className="vacabulary">
             <h2>Словарь слов для игры EnFLame</h2>
             <table className='table'>
                 <thead>

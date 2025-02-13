@@ -5,8 +5,17 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  padding: 60px 0 20px 20px;
+  max-height: 100vh;
   background-color: var.$background-main-style;
+
+  .game__text-part {
+    color: var.$text-basic-color; // Цвет для части "En" и "ame"
+  }
+
+  .game__text-part--middle {
+    color: var.$additional-accent-color; // Цвет для части "FL"
+  }
 }
 
 .game-container {

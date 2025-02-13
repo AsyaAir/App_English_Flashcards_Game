@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   gap: 10px; /* Отступ между иконкой и текстом */
+  margin-right: 15px;
 }
 
 .logo__icon {
@@ -33,7 +34,15 @@
 .logo__text {
   font-size: 20px;
   font-weight: bold;
-  color: var.$text-basic-color;
+  text-decoration: none;
+
+  .logo__text-part {
+    color: var.$text-basic-color;; // Цвет для части "En" и "ame"
+  }
+
+  .logo__text-part--middle {
+    color: var.$additional-accent-color; // Цвет для части "FL"
+  }
 }
 
 .menu__link {
@@ -95,12 +104,12 @@
   }
 
   .menu {
-    flex-direction: column;
+    // flex-direction: column;
     gap: 10px;
   }
 
   .menu__link {
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     gap: 8px;
   }

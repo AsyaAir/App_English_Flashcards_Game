@@ -109,3 +109,8 @@ button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.incorrect {
+    border-color: red;
+    background-color: #f8d7da; /* Легкий красный фон */
+}

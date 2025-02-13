@@ -5,21 +5,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 100%;
+    padding: 60px 0 20px 20px;
+    max-height: 100vh;
     background-color: var.$background-main-style;
     color: var.$text-basic-color;
 
+    .home__text-part {
+        color: var.$text-basic-color;; // Цвет для части "En" и "ame"
+    }
+    
+    .home__text-part--middle {
+        color: var.$additional-accent-color; // Цвет для части "FL"
+    }
+
     .logo {
         max-width: 40%;
-        margin: 20px;
+        // margin: 20px;
     }
     .hometext {
         font-size: 1rem;
         text-align: center;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
 }
 
@@ -29,6 +35,5 @@
     align-items: center;
     width: 100%;
     height: 50px;
-    margin-bottom: 25px;
     cursor: pointer;
 }
