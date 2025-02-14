@@ -14,6 +14,11 @@
     justify-content: space-between;
     width: 100%;
     max-width: 600px; // Ограничение ширины для лучшего вида
+
+    // @media (max-width: var.$mobile-size) {
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
 }
 
 .card-container {
@@ -21,7 +26,17 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    // margin: 0 20px;
+
+    @media (max-width: var.$mobile-size) {
+        transform: scale(0.7); // Уменьшение карточки со всем содержимым
+        // margin: 5px 5px 5px 5px;
+    }
+}
+
+.card-wrapper__left-button,
+.card-wrapper__right-button {
+    
+    margin-left: 30px;
 }
 
 .nav-btn {
@@ -29,11 +44,13 @@
     font-size: 16px;
     transition: background-color 0.3s;
     white-space: nowrap;
+
+    @media (max-width: var.$mobile-size) {
+        font-size: 10px;
+    }
 }
 
 .nav-btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
-
-// card-wrapper__left-button
