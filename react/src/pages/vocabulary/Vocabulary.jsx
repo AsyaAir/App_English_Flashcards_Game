@@ -1,31 +1,37 @@
-import { useEffect, useState } from 'react';
+// Использование MobX для получения и управления данными.
+// Замена использования useState на MobX-стор
+import { useState, useEffect } from 'react';
+import { observer } from 'mobx-react';
+// импорт MobX store
+import wordStore from '../../stores/store'; 
 import './Vocabulary.module.scss';
 
-function Vocabulary() {
-    const [words, setWords] = useState([]);
+const Vocabulary = observer(() => {
     const [editingRow, setEditingRow] = useState(null);
     const [editValues, setEditValues] = useState({});
     const [errors, setErrors] = useState({});
+    const [newWord, setNewWord] = useState({ english: '', transcription: '', russian: '', tags: '' });
 
+    // Загружаем слова с сервера при монтировании компонента
     useEffect(() => {
-        fetch('http://itgirlschool.justmakeit.ru/api/words')
-            .then(response => response.json())
-            .then(data => setWords(data))
-            .catch(error => console.error('Ошибка загрузки слов:', error));
+        wordStore.fetchWords();
     }, []);
 
+    // Обрабатываем клик на редактирование
     const handleEditClick = (id, word) => {
         setEditingRow(id);
         setEditValues(word);
         setErrors({});
     };
 
+    // Обрабатываем отмену редактирования
     const handleCancelClick = () => {
         setEditingRow(null);
         setEditValues({});
         setErrors({});
     };
 
+    // Обрабатываем изменения в полях редактирования
     const handleChange = (e, field) => {
         setEditValues({ ...editValues, [field]: e.target.value });
 
@@ -35,15 +41,14 @@ function Vocabulary() {
         }));
     };
 
-    // В функции handleSaveClick вызывается функция isFormValid(), которая проверяет, что все поля заполнены
+    // Проверка валидности формы для редактирования
     const isFormValid = () => {
         return Object.values(editValues).every(value => value.trim() !== '');
     };
 
+    // Обрабатываем сохранение изменений
     const handleSaveClick = (id) => {
-        // Если форма не прошла проверку (то есть хотя бы одно поле пустое), выводится сообщение об ошибке в консоль и состояние ошибок обновляется
         if (!isFormValid()) {
-            console.error('Ошибка: Все поля должны быть заполнены!');
             setErrors({
                 english: !editValues.english.trim(),
                 transcription: !editValues.transcription.trim(),
@@ -53,18 +58,86 @@ function Vocabulary() {
             return;
         }
 
-        // Если форма валидна, данные сохраняются и обновляется состояние словаря, а режим редактирования выключается
-        const updatedWords = words.map(word =>
-            word.id === id ? { ...word, ...editValues } : word
-        );
-        setWords(updatedWords);
-        setEditingRow(null);
-        console.log('Сохранено:', editValues);
+        // Отправляем изменения на сервер
+        wordStore.updateWordOnServer(id, editValues)
+            .then(() => {
+                // После успешного обновления обновляем список слов
+                wordStore.fetchWords();
+                setEditingRow(null);
+            })
+            .catch((error) => {
+                console.error("Ошибка при обновлении слова на сервере", error);
+            });
+    };
+
+    // Обрабатываем удаление слова
+    const handleDeleteClick = (id) => {
+        wordStore.deleteWordOnServer(id)
+            .then(() => {
+                wordStore.fetchWords(); // Обновляем список после удаления
+            })
+            .catch((error) => {
+                console.error("Ошибка при удалении слова", error);
+            });
+    };
+
+    // Обрабатываем добавление нового слова
+    const handleAddWord = () => {
+        if (Object.values(newWord).every(field => field.trim() !== '')) {
+            // Отправляем новое слово на сервер
+            wordStore.saveWord(newWord)
+                .then(() => {
+                    // После успешного добавления обновляем список слов
+                    wordStore.fetchWords();
+                    setNewWord({ english: '', transcription: '', russian: '', tags: '' });
+                })
+                .catch((error) => {
+                    console.error("Ошибка при добавлении слова на сервер", error);
+                });
+        } else {
+            setErrors({
+                english: !newWord.english.trim(),
+                transcription: !newWord.transcription.trim(),
+                russian: !newWord.russian.trim(),
+                tags: !newWord.tags.trim(),
+            });
+        }
     };
 
     return (
         <div className="vocabulary">
             <h2>Словарь слов для игры EnFlame</h2>
+            <div className="add-word-form">
+                <input
+                    type="text"
+                    placeholder="English"
+                    value={newWord.english}
+                    onChange={(e) => setNewWord({ ...newWord, english: e.target.value })}
+                    className={errors.english ? 'error' : ''}
+                />
+                <input
+                    type="text"
+                    placeholder="Transcription"
+                    value={newWord.transcription}
+                    onChange={(e) => setNewWord({ ...newWord, transcription: e.target.value })}
+                    className={errors.transcription ? 'error' : ''}
+                />
+                <input
+                    type="text"
+                    placeholder="Russian"
+                    value={newWord.russian}
+                    onChange={(e) => setNewWord({ ...newWord, russian: e.target.value })}
+                    className={errors.russian ? 'error' : ''}
+                />
+                <input
+                    type="text"
+                    placeholder="Tags"
+                    value={newWord.tags}
+                    onChange={(e) => setNewWord({ ...newWord, tags: e.target.value })}
+                    className={errors.tags ? 'error' : ''}
+                />
+                <button onClick={handleAddWord}>Добавить слово</button>
+            </div>
             <table className="table">
                 <thead>
                     <tr>
@@ -77,7 +150,7 @@ function Vocabulary() {
                     </tr>
                 </thead>
                 <tbody>
-                    {words.map(word => (
+                    {wordStore.words.map((word) => (
                         <tr key={word.id}>
                             {editingRow === word.id ? (
                                 <>
@@ -128,7 +201,7 @@ function Vocabulary() {
                                         <button onClick={() => handleEditClick(word.id, word)}>✏️ Редактировать</button>
                                     </td>
                                     <td>
-                                        <button>🗑️ Удалить</button>
+                                        <button onClick={() => handleDeleteClick(word.id)}>🗑️ Удалить</button>
                                     </td>
                                 </>
                             )}
@@ -138,6 +211,6 @@ function Vocabulary() {
             </table>
         </div>
     );
-}
+});
 
 export default Vocabulary;
