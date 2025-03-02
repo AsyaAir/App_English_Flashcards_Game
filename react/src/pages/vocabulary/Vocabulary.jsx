@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
+// подключение компонента Vocabulary к созданному контексту WordContext и 
+// передача данных и методов для изменения, удаления и добавления слов
+import { WordsContext } from './WordsContext';
 import './Vocabulary.module.scss';
 
 function Vocabulary() {
-    const [words, setWords] = useState([]);
+    const { words, loading, error, addWord, updateWord, deleteWord } = useContext(WordsContext);
     const [editingRow, setEditingRow] = useState(null);
     const [editValues, setEditValues] = useState({});
     const [errors, setErrors] = useState({});
-
-    useEffect(() => {
-        fetch('http://itgirlschool.justmakeit.ru/api/words')
-            .then(response => response.json())
-            .then(data => setWords(data))
-            .catch(error => console.error('Ошибка загрузки слов:', error));
-    }, []);
 
     const handleEditClick = (id, word) => {
         setEditingRow(id);
@@ -28,22 +24,18 @@ function Vocabulary() {
 
     const handleChange = (e, field) => {
         setEditValues({ ...editValues, [field]: e.target.value });
-
         setErrors((prev) => ({
             ...prev,
             [field]: e.target.value.trim() === '',
         }));
     };
 
-    // В функции handleSaveClick вызывается функция isFormValid(), которая проверяет, что все поля заполнены
     const isFormValid = () => {
         return Object.values(editValues).every(value => value.trim() !== '');
     };
 
     const handleSaveClick = (id) => {
-        // Если форма не прошла проверку (то есть хотя бы одно поле пустое), выводится сообщение об ошибке в консоль и состояние ошибок обновляется
         if (!isFormValid()) {
-            console.error('Ошибка: Все поля должны быть заполнены!');
             setErrors({
                 english: !editValues.english.trim(),
                 transcription: !editValues.transcription.trim(),
@@ -52,19 +44,31 @@ function Vocabulary() {
             });
             return;
         }
-
-        // Если форма валидна, данные сохраняются и обновляется состояние словаря, а режим редактирования выключается
-        const updatedWords = words.map(word =>
-            word.id === id ? { ...word, ...editValues } : word
-        );
-        setWords(updatedWords);
+        updateWord(id, editValues);
         setEditingRow(null);
-        console.log('Сохранено:', editValues);
     };
+
+    const handleAddWord = () => {
+        const newWord = { english: '', transcription: '', russian: '', tags: '' }; // Пример пустого слова
+        addWord(newWord);
+    };
+
+    const handleDeleteClick = (id) => {
+        deleteWord(id);
+    };
+
+    if (loading) {
+        return <div>Загрузка...</div>;
+    }
+
+    if (error) {
+        return <div className="error-message">{error}</div>;
+    }
 
     return (
         <div className="vocabulary">
             <h2>Словарь слов для игры EnFlame</h2>
+            <button onClick={handleAddWord}>Добавить слово</button>
             <table className="table">
                 <thead>
                     <tr>
@@ -128,7 +132,7 @@ function Vocabulary() {
                                         <button onClick={() => handleEditClick(word.id, word)}>✏️ Редактировать</button>
                                     </td>
                                     <td>
-                                        <button>🗑️ Удалить</button>
+                                        <button onClick={() => handleDeleteClick(word.id)}>🗑️ Удалить</button>
                                     </td>
                                 </>
                             )}
