@@ -42,7 +42,7 @@ const Game = () => {
 
     return (
         <div className="game">
-            <h1>Игра с карточками English <br></br> Flashcards Game <br></br>
+            <h1>Игра с карточками English <br /> Flashcards Game <br />
                 <span className="game__text-part"> En</span>
                 <span className="game__text-part--middle">FL</span>
                 <span className="game__text-part">ame </span>
@@ -52,7 +52,7 @@ const Game = () => {
                 currentIndex={currentIndex}
                 goToNextCard={goToNextCard}
                 goToPreviousCard={goToPreviousCard}
-                onCorrectAnswer={handleCorrectAnswer}
+                onCorrectAnswer={handleCorrectAnswer} // Передаем функцию
             />
             <p className="correctanswers">
                 Изучено слов: {learnedWordsCount} из {totalWords}
