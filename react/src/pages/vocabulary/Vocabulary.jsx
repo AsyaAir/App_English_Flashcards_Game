@@ -3,10 +3,10 @@ import './Vocabulary.module.scss';
 
 function Vocabulary() {
     const [words, setWords] = useState([]);
-    const [editingRow, setEditingRow] = useState(null); // ID редактируемой строки
-    const [editValues, setEditValues] = useState({}); // Значения в режиме редактирования
+    const [editingRow, setEditingRow] = useState(null);
+    const [editValues, setEditValues] = useState({});
+    const [errors, setErrors] = useState({});
 
-    // Загружаем данные из API
     useEffect(() => {
         fetch('http://itgirlschool.justmakeit.ru/api/words')
             .then(response => response.json())
@@ -14,44 +14,63 @@ function Vocabulary() {
             .catch(error => console.error('Ошибка загрузки слов:', error));
     }, []);
 
-    // Включить режим редактирования
     const handleEditClick = (id, word) => {
         setEditingRow(id);
-        setEditValues(word); // Загружаем текущие данные в редактируемые поля
+        setEditValues(word);
+        setErrors({});
     };
 
-    // Отмена редактирования
     const handleCancelClick = () => {
         setEditingRow(null);
         setEditValues({});
+        setErrors({});
     };
 
-    // Обновление значения в поле
     const handleChange = (e, field) => {
         setEditValues({ ...editValues, [field]: e.target.value });
+
+        setErrors((prev) => ({
+            ...prev,
+            [field]: e.target.value.trim() === '',
+        }));
     };
 
-    // Сохранение изменений
+    const isFormValid = () => {
+        return Object.values(editValues).every(value => value.trim() !== '');
+    };
+
     const handleSaveClick = (id) => {
+        if (!isFormValid()) {
+            console.error('Ошибка: Все поля должны быть заполнены!');
+            setErrors({
+                english: !editValues.english.trim(),
+                transcription: !editValues.transcription.trim(),
+                russian: !editValues.russian.trim(),
+                tags: !editValues.tags.trim(),
+            });
+            return;
+        }
+
         const updatedWords = words.map(word =>
             word.id === id ? { ...word, ...editValues } : word
         );
         setWords(updatedWords);
         setEditingRow(null);
+        console.log('Сохранено:', editValues);
     };
 
     return (
-        <div className="vacabulary">
-            <h2>Словарь слов для игры EnFLame</h2>
-            <table className='table'>
+        <div className="vocabulary">
+            <h2>Словарь слов для игры EnFlame</h2>
+            <table className="table">
                 <thead>
                     <tr>
-                        <th>English / Английский</th>
-                        <th>Transcription / Транскрипция</th>
-                        <th>Russian / Русский</th>
-                        <th>Tags / Категория</th>
-                        <th>Edit / Исправить</th>
-                        <th>Delete / Удалить</th>
+                        <th>English</th>
+                        <th>Transcription</th>
+                        <th>Russian</th>
+                        <th>Tags</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,12 +78,40 @@ function Vocabulary() {
                         <tr key={word.id}>
                             {editingRow === word.id ? (
                                 <>
-                                    <td><input type="text" value={editValues.english} onChange={(e) => handleChange(e, 'english')} /></td>
-                                    <td><input type="text" value={editValues.transcription} onChange={(e) => handleChange(e, 'transcription')} /></td>
-                                    <td><input type="text" value={editValues.russian} onChange={(e) => handleChange(e, 'russian')} /></td>
-                                    <td><input type="text" value={editValues.tags} onChange={(e) => handleChange(e, 'tags')} /></td>
                                     <td>
-                                        <button onClick={() => handleSaveClick(word.id)}>💾 Сохранить</button>
+                                        <input
+                                            type="text"
+                                            value={editValues.english}
+                                            onChange={(e) => handleChange(e, 'english')}
+                                            className={errors.english ? 'error' : ''}
+                                        />
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            value={editValues.transcription}
+                                            onChange={(e) => handleChange(e, 'transcription')}
+                                            className={errors.transcription ? 'error' : ''}
+                                        />
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            value={editValues.russian}
+                                            onChange={(e) => handleChange(e, 'russian')}
+                                            className={errors.russian ? 'error' : ''}
+                                        />
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            value={editValues.tags}
+                                            onChange={(e) => handleChange(e, 'tags')}
+                                            className={errors.tags ? 'error' : ''}
+                                        />
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleSaveClick(word.id)} disabled={!isFormValid()}>💾 Сохранить</button>
                                         <button onClick={handleCancelClick}>❌ Отмена</button>
                                     </td>
                                 </>
