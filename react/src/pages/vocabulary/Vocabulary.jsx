@@ -35,11 +35,13 @@ function Vocabulary() {
         }));
     };
 
+    // В функции handleSaveClick вызывается функция isFormValid(), которая проверяет, что все поля заполнены
     const isFormValid = () => {
         return Object.values(editValues).every(value => value.trim() !== '');
     };
 
     const handleSaveClick = (id) => {
+        // Если форма не прошла проверку (то есть хотя бы одно поле пустое), выводится сообщение об ошибке в консоль и состояние ошибок обновляется
         if (!isFormValid()) {
             console.error('Ошибка: Все поля должны быть заполнены!');
             setErrors({
@@ -51,6 +53,7 @@ function Vocabulary() {
             return;
         }
 
+        // Если форма валидна, данные сохраняются и обновляется состояние словаря, а режим редактирования выключается
         const updatedWords = words.map(word =>
             word.id === id ? { ...word, ...editValues } : word
         );
