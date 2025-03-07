@@ -1,3 +1,75 @@
+<div id="header" align="center">
+  <h1>English Flashcards Game (EnFLame)</h1>
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#technologies-used">Technologies Used</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<div id="body">
+  <h2 id="description">Description</h2>
+<p>
+    EnFLame is an educational game designed to assist Russian-speaking users in learning English vocabulary through interactive flashcards. While tailored for Russian speakers, the game can be adapted for other languages, making it a versatile tool for language learners worldwide. This project serves as a learning exercise in both language acquisition and software development.
+  </p>
+  <p>
+    This application was created by me as a pet project during my studies at an IT school, allowing me to apply my knowledge in software development while working on an engaging and educational tool.
+  </p>
+
+  <h2 id="features">Features</h2>
+  <ul>
+    <li><strong>Interactive Gameplay:</strong> Engage with dynamic flashcards to enhance vocabulary retention.</li>
+    <li><strong>Progress Tracking:</strong> Monitor learning progress and identify areas for improvement.</li>
+  </ul>
+
+  <h2 id="installation">Installation</h2>
+  <p>To set up EnFLame locally, follow these steps:</p>
+  <pre><code># Clone the repository
+git clone https://github.com/AsyaAir/App_English_Flashcards_Game.git
+
+# Navigate to the project directory
+cd App_English_Flashcards_Game/react
+
+# Install dependencies
+npm install
+
+# Install additional packages
+npm install sass@latest --save-dev
+npm install normalize.css
+  </code></pre>
+
+  <h2 id="usage">Usage</h2>
+  <p>To start the development server with Vite:</p>
+  <pre><code>npm run dev
+  </code></pre>
+  <p>This will launch the application, and you can access it in your browser at <strong>http://localhost:3000</strong>.</p>
+
+  <h2 id="technologies-used">Technologies Used</h2>
+  
+![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![SCSS](https://img.shields.io/badge/-SCSS-CC6699?style=flat-square&logo=sass&logoColor=white)
+![JSON](https://img.shields.io/badge/-JSON-025F5C?style=flat-square&logo=json&logoColor=white)
+
+  <h2 id="license">License</h2>
+  <p>This project is proprietary. Please contact the author for permission to use, modify, or distribute the code.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>If you have any questions or suggestions, feel free to contact me!</p>
+
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:anatulupnikoff@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anastasia-tulupnikoff/)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=flat-square&logo=telegram&logoColor=white)](https://t.me/AsyaAir)
+</div>
+
+
+
+
 1. Установка пакета sass
    npm install sass@latest --save-dev
 2. Чтобы начать следить за изменениями в SCSS-файлах
