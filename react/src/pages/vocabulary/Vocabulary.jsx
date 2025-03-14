@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 // подключение компонента Vocabulary к созданному контексту WordContext и 
 // передача данных и методов для изменения, удаления и добавления слов
-import { WordsContext } from './WordsContext';
+import { WordsContext } from './../../contexts/WordsContext';
 import './Vocabulary.module.scss';
 
 function Vocabulary() {

@@ -1,7 +1,6 @@
 // подключение WordsProvider в корневой компонент, 
 // чтобы контекст был доступен в любом месте приложения
-import { WordsProvider } from '../src/pages/vocabulary/WordsContext.jsx'; 
-
+import { WordsProvider } from '@/providers/WordsProvider';
 import { useState, useEffect } from "react";
 import Header from './components/header/Header.jsx';
 import Footer from './components/footer/Footer.jsx';
@@ -19,7 +18,7 @@ const App = () => {
     useEffect(() => {
         // Симуляция загрузки данных
         setTimeout(() => {
-        setLoading(false);
+            setLoading(false);
         }, 3000); // 3 секунды
     }, []);
 

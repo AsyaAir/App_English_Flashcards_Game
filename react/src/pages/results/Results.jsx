@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './Results.module.scss';
 
-const Results = ({ lastGameDate, totalGameTime, correctAnswers, totalWords }) => {
+const Results = ({ lastGameDate, totalGameTime, correctAnswers = 0, totalWords = 0 }) => {
     return (
         <div className="results">
             <h2>Результаты игры</h2>
@@ -22,8 +22,8 @@ const Results = ({ lastGameDate, totalGameTime, correctAnswers, totalWords }) =>
 Results.propTypes = {
     lastGameDate: PropTypes.string,
     totalGameTime: PropTypes.number,
-    correctAnswers: PropTypes.number.isRequired,
-    totalWords: PropTypes.number.isRequired,
+    correctAnswers: PropTypes.number,
+    totalWords: PropTypes.number,
 };
 
 export default Results;

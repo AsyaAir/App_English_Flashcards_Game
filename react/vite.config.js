@@ -11,6 +11,12 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'), // Алиас на src/
+      '@contexts': path.resolve(__dirname, 'src/contexts'), // Алиас на контексты
+    },
+  },
+  server: {
+    proxy: {
+      '/api': 'http://itgirlschool.justmakeit.ru', // Прокси для API
     },
   },
   css: {
@@ -23,6 +29,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    sourcemap: mode !== 'production', // Теперь используем переданный `mode`
+    sourcemap: mode !== 'production', // Теперь используется переданный `mode`
   },
 }));
