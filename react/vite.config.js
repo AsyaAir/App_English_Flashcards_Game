@@ -25,4 +25,9 @@ export default defineConfig(({ mode }) => ({
   build: {
     sourcemap: mode !== 'production', // Теперь используем переданный `mode`
   },
+  server: {
+    proxy: {
+      '/api': 'http://itgirlschool.justmakeit.ru', // Прокси для API запросов
+    },
+  },
 }));

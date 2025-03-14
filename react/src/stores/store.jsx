@@ -30,7 +30,7 @@ class WordStore {
 
     async fetchWords() {
         try {
-            const response = await fetch('http://itgirlschool.justmakeit.ru/api/words');
+            const response = await fetch('/api/words');  // Относительный путь
             const data = await response.json();
             this.setWords(data);
         } catch (error) {
@@ -40,7 +40,7 @@ class WordStore {
 
     async saveWord(word) {
         try {
-            const response = await fetch('http://itgirlschool.justmakeit.ru/api/words', {
+            const response = await fetch('/api/words', {  // Относительный путь
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ class WordStore {
 
     async updateWordOnServer(id, updatedWord) {
         try {
-            const response = await fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}`, {
+            const response = await fetch(`/api/words/${id}`, {  // Относительный путь
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ class WordStore {
 
     async deleteWordOnServer(id) {
         try {
-            await fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}`, {
+            await fetch(`/api/words/${id}`, {  // Относительный путь
                 method: 'DELETE',
             });
             this.deleteWord(id);

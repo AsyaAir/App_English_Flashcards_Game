@@ -2,36 +2,35 @@
 // Замена использования useState на MobX-стор
 import { useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
-// импорт MobX store
-import wordStore from '../../stores/store'; 
+import wordStore from '../../stores/store'; // Импорт MobX стора
 import './Vocabulary.module.scss';
 
 const Vocabulary = observer(() => {
-    const [editingRow, setEditingRow] = useState(null);
-    const [editValues, setEditValues] = useState({});
-    const [errors, setErrors] = useState({});
-    const [newWord, setNewWord] = useState({ english: '', transcription: '', russian: '', tags: '' });
+    const [editingRow, setEditingRow] = useState(null); // Состояние для редактируемой строки
+    const [editValues, setEditValues] = useState({}); // Состояние для значений редактирования
+    const [errors, setErrors] = useState({}); // Состояние для ошибок валидации
+    const [newWord, setNewWord] = useState({ english: '', transcription: '', russian: '', tags: '' }); // Состояние для нового слова
 
     // Загружаем слова с сервера при монтировании компонента
     useEffect(() => {
-        wordStore.fetchWords();
+        wordStore.fetchWords(); // Используем метод fetchWords из стора
     }, []);
 
-    // Обрабатываем клик на редактирование
+    // Функция для обработки клика по кнопке редактирования
     const handleEditClick = (id, word) => {
         setEditingRow(id);
         setEditValues(word);
         setErrors({});
     };
 
-    // Обрабатываем отмену редактирования
+    // Функция для обработки отмены редактирования
     const handleCancelClick = () => {
         setEditingRow(null);
         setEditValues({});
         setErrors({});
     };
 
-    // Обрабатываем изменения в полях редактирования
+    // Функция для обработки изменений в полях редактирования
     const handleChange = (e, field) => {
         setEditValues({ ...editValues, [field]: e.target.value });
 
@@ -41,12 +40,12 @@ const Vocabulary = observer(() => {
         }));
     };
 
-    // Проверка валидности формы для редактирования
+    // Функция для проверки валидности формы редактирования
     const isFormValid = () => {
         return Object.values(editValues).every(value => value.trim() !== '');
     };
 
-    // Обрабатываем сохранение изменений
+    // Функция для обработки сохранения изменений
     const handleSaveClick = (id) => {
         if (!isFormValid()) {
             setErrors({
@@ -58,11 +57,10 @@ const Vocabulary = observer(() => {
             return;
         }
 
-        // Отправляем изменения на сервер
+        // Используем метод updateWordOnServer из стора для обновления слова на сервере
         wordStore.updateWordOnServer(id, editValues)
             .then(() => {
-                // После успешного обновления обновляем список слов
-                wordStore.fetchWords();
+                wordStore.fetchWords(); // Обновляем список слов после успешного обновления
                 setEditingRow(null);
             })
             .catch((error) => {
@@ -70,25 +68,24 @@ const Vocabulary = observer(() => {
             });
     };
 
-    // Обрабатываем удаление слова
+    // Функция для обработки удаления слова
     const handleDeleteClick = (id) => {
         wordStore.deleteWordOnServer(id)
             .then(() => {
-                wordStore.fetchWords(); // Обновляем список после удаления
+                wordStore.fetchWords(); // Обновляем список слов после удаления
             })
             .catch((error) => {
                 console.error("Ошибка при удалении слова", error);
             });
     };
 
-    // Обрабатываем добавление нового слова
+    // Функция для обработки добавления нового слова
     const handleAddWord = () => {
         if (Object.values(newWord).every(field => field.trim() !== '')) {
-            // Отправляем новое слово на сервер
+            // Используем метод saveWord из стора для добавления нового слова
             wordStore.saveWord(newWord)
                 .then(() => {
-                    // После успешного добавления обновляем список слов
-                    wordStore.fetchWords();
+                    wordStore.fetchWords(); // Обновляем список слов после добавления
                     setNewWord({ english: '', transcription: '', russian: '', tags: '' });
                 })
                 .catch((error) => {
@@ -188,7 +185,10 @@ const Vocabulary = observer(() => {
                                     </td>
                                     <td>
                                         <button onClick={() => handleSaveClick(word.id)} disabled={!isFormValid()}>💾 Сохранить</button>
-                                        <button onClick={handleCancelClick}>❌ Отмена</button>
+                                        <button onClick={handleCancelClick}>❌ Отменить</button>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleDeleteClick(word.id)}>🗑 Удалить</button>
                                     </td>
                                 </>
                             ) : (
@@ -201,7 +201,7 @@ const Vocabulary = observer(() => {
                                         <button onClick={() => handleEditClick(word.id, word)}>✏️ Редактировать</button>
                                     </td>
                                     <td>
-                                        <button onClick={() => handleDeleteClick(word.id)}>🗑️ Удалить</button>
+                                        <button onClick={() => handleDeleteClick(word.id)}>🗑 Удалить</button>
                                     </td>
                                 </>
                             )}
